@@ -2,7 +2,7 @@
 
 Below is a high-level, task-centered ERD diagram showing how risk information flows through the system. <br><br>
 
-
+```mermaid
 erDiagram
     SITE ||--o{ ZONE : contains
     ZONE ||--o{ PHASE : includes
@@ -38,4 +38,4 @@ erDiagram
 
     WEATHER }o--|| TASK : influences
 
-
+```
