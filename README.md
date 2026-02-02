@@ -32,11 +32,47 @@ This project demonstrates **senior-level consultancy competencies** in database 
 
 ## 📌 Conceptual Risk Intelligence Model
 
-> Below is a placeholder for the **high-level task-centered ERD diagram** (Mermaid code to be added in `/docs/ERD.md`).
+**high-level task-centered ERD diagram**
+
+```mermaid
+erDiagram
+    SITE ||--o{ ZONE : contains
+    ZONE ||--o{ PHASE : includes
+    PHASE ||--o{ TASK : defines
+
+    PERSON ||--o{ ATTENDANCE : logs
+    ATTENDANCE }o--|| TASK : supports
+
+    TASK ||--o{ PTW : requires
+    TASK ||--o{ JSA : requires
+
+    PERSON ||--o{ PERSON_CERTIFICATION : holds
+    PTW ||--o{ PTW_CERTIFICATION : requires
+    JSA ||--o{ JSA_CERTIFICATION : requires
+
+    TASK ||--o{ INCIDENT : leads_to
+    INCIDENT ||--o{ INTERVENTION : triggers
+    INTERVENTION ||--o{ CORRECTIVE_ACTION : results_in
+
+    TASK ||--o{ OBSERVATION : generates
+    OBSERVATION ||--o{ CORRECTIVE_ACTION : may_create
+
+    TASK ||--o{ HAZARD : exposes
+    HAZARD ||--o{ HAZARD_CONTROL : mitigated_by
+    HAZARD_CONTROL }o--|| CONTROL : uses
+
+    HAZARD }o--|| SEVERITY_LEVELS : rated_by
+    HAZARD }o--|| PROBABILITY_LEVELS : rated_by
+    SEVERITY_LEVELS ||--o{ RISK_MATRIX : defines
+    PROBABILITY_LEVELS ||--o{ RISK_MATRIX : defines
+
+    HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
+
+    WEATHER }o--|| TASK : influences
+
+```
 
 **Conceptual Flow (simplified)**:
-
-
 - The ERD shows how **tasks drive incidents and hazards**, which in turn trigger interventions and corrective actions.  
 - Observations and weather influence incidents and tasks.  
 - Controls mitigate hazards and can feed back into corrective actions.
