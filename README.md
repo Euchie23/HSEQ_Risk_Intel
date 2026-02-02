@@ -70,8 +70,8 @@ erDiagram
 
     WEATHER }o--|| TASK : influences
 
-```
-<br> 
+``` 
+
 **Conceptual Flow (simplified)**:
 - The ERD shows how **tasks drive incidents and hazards**, which in turn trigger interventions and corrective actions.  
 - Observations and weather influence incidents and tasks.  
