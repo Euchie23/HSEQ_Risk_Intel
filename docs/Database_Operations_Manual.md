@@ -1,4 +1,4 @@
-# Database Operations Manual
+# 📒 Database Operations Manual 📒
 ## HSE-Q Risk Intelligence System
 
 ---
