@@ -133,6 +133,6 @@ This project demonstrates **senior-level consultancy competencies** in database 
 
 ## 📬 Get Involved
 
-- 🐛 [Open an issue](#) — suggestions, bugs, feature requests  
-- ✉️ Email: `your.email@company.com` — collaboration inquiries  
-- 💼 LinkedIn: `https://linkedin.com/in/yourprofile` — professional discussion  
+- 🐛 [Open an issue](https://github.com/Euchie23/HSEQ_Risk_Intel/issues) for feedback, bugs, or suggestions  
+- ✉️ [Email me](mailto:euchiejnpierre@gmail.com)  
+- 💼 [Connect on LinkedIn](https://www.linkedin.com/in/euchiejnpierre/)  
