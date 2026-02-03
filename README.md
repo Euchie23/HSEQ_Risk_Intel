@@ -18,14 +18,24 @@ This project demonstrates **senior-level consultancy competencies** in database 
 
 ## 🔐 Data Ethics, Governance & Portfolio Use
 
-This project is built from field-derived HSE observations and operational reporting authored by the developer, not exported from any proprietary company system.
-All tasks, hazards, observations, incidents, and risk classifications originate from daily HSE reports and PPE verification sheets created as part of routine site oversight.
-For portfolio and GitHub publication:
+This project is built from field-derived HSE observations and operational reporting authored by the developer during routine site oversight.  
+It is **not** exported from any proprietary company system or database.
+
+All tasks, hazards, observations, incidents, toolbox topics, and operational records originate from daily HSE reports and PPE verification sheets personally prepared as part of on-site responsibilities.
+
+For portfolio and GitHub publication, the following governance rules are applied:
+
 - Worker names are anonymized
-- Site name is generalized
-No proprietary company systems or databases are used
-The dataset represents a structured simulation of real operational patterns while preserving confidentiality
-This demonstrates how real-world HSE intelligence can be structured into a governed database while respecting data privacy and ethical practice
+- Site and company identifiers are generalized
+- PTW, JSA, and certification numbers are anonymized
+- Company-specific risk matrices, severity scales, and probability classifications are **abstracted** into generic lookup tables
+- No proprietary documents, templates, or internal systems are reproduced
+
+The dataset therefore represents a **structured abstraction of real operational patterns** while fully preserving confidentiality.
+
+This demonstrates how real-world HSE intelligence can be translated into a governed, relational database suitable for analytics, dashboards, and future AI-assisted querying — while adhering to professional data ethics and privacy standards.
+
+---
 
 ## 📂 Repository Structure
 
