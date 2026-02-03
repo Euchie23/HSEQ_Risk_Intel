@@ -65,21 +65,6 @@ The entire system is **task-centered**. Every record in the database connects ba
 
 ---
 
-## 1. Purpose of the System
-
-This is not an incident log.
-
-This database is a **Risk Intelligence System** designed to:
-
-- Understand risk **before work starts**
-- Monitor risk **while work is happening**
-- Learn from risk **after events occur**
-- Enable predictive analytics in the future
-
-The entire system is **task-centered**. Every record in the database connects back to a task performed on site.
-
----
-
 ## 2. The Golden Rule of the Database
 
 > Nothing happens on site unless it is linked to a **TASK**
