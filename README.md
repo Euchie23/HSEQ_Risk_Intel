@@ -41,7 +41,7 @@ This demonstrates how real-world HSE intelligence can be translated into a gover
 
 - `/sql` — Schema creation, indexes, constraints  
 - `/data` — Preloaded lookup tables and example transactional entries  
-- `/manuals` — Database operations and data entry guidelines  
+- `/docs` — Database operations and data entry guidelines  
 - `/reports` — Generated dashboards, KPI summaries, and compliance reports  
 - `/app` — Future Shiny dashboards and analytics  
 - `/notebooks` — Data exploration, validation scripts, simulations
