@@ -3,6 +3,68 @@
 
 ---
 
+## 🔐 Data Ethics, Governance & Portfolio Use
+
+This database design is based on field-derived HSE observations, daily safety reports, PPE verification sheets, and operational records authored by the developer during routine site oversight.
+
+The system is **not** built from any proprietary company database, software export, or internal system.
+
+All tasks, hazards, observations, incidents, toolbox topics, and attendance records originate from independent HSE documentation prepared on site and later structured into this relational database for analytics and portfolio demonstration.
+
+### For Portfolio / GitHub Use
+
+To ensure professional data ethics and confidentiality, the following rules are applied when publishing this project:
+
+- Worker names are anonymized in the `PERSON` table
+- Site and company identifiers are generalized in the `SITE` and `ZONE` tables
+- PTW IDs, JSA IDs, and certification identifiers are anonymized
+- Company-specific risk matrices, severity definitions, and probability classifications are abstracted into generic lookup tables
+- No proprietary documents, templates, forms, or internal company systems are reproduced
+
+### What This Dataset Represents
+
+The published dataset is a **structured abstraction of real operational patterns** observed on site.
+
+It preserves:
+
+- How tasks create hazards
+- How hazards are controlled
+- How incidents occur
+- How interventions and corrective actions are triggered
+- How toolbox meetings, attendance, and PPE checks influence site safety
+
+While ensuring:
+
+> No proprietary company framework, identity, or documentation is exposed.
+
+### Professional Significance
+
+This approach demonstrates how real-world HSE intelligence can be translated into:
+
+- A governed relational database
+- Operational dashboards
+- Risk analytics
+- Future AI-assisted querying
+
+…while strictly adhering to professional data ethics, privacy standards, and confidentiality expectations expected at a consultancy level.
+
+---
+
+## 1. Purpose of the System
+
+This is not an incident log.
+
+This database is a **Risk Intelligence System** designed to:
+
+- Understand risk **before work starts**
+- Monitor risk **while work is happening**
+- Learn from risk **after events occur**
+- Enable predictive analytics in the future
+
+The entire system is **task-centered**. Every record in the database connects back to a task performed on site.
+
+---
+
 ## 1. Purpose of the System
 
 This is not an incident log.
