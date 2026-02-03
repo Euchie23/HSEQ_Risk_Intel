@@ -16,7 +16,16 @@ This project demonstrates **senior-level consultancy competencies** in database 
 
 ---
 
-## 📂 Repository Structure
+## 🔐 Data Ethics, Governance & Portfolio Use
+
+This project is built from field-derived HSE observations and operational reporting authored by the developer, not exported from any proprietary company system.
+All tasks, hazards, observations, incidents, and risk classifications originate from daily HSE reports and PPE verification sheets created as part of routine site oversight.
+For portfolio and GitHub publication:
+- Worker names are anonymized
+- Site name is generalized
+No proprietary company systems or databases are used
+The dataset represents a structured simulation of real operational patterns while preserving confidentiality
+This demonstrates how real-world HSE intelligence can be structured into a governed database while respecting data privacy and ethical practice
 
 ## 📂 Repository Structure
 
