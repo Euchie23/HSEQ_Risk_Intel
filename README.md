@@ -40,8 +40,8 @@ This demonstrates how real-world HSE intelligence can be translated into a gover
 ## 📂 Repository Structure
 
 - `/sql` — Schema creation, indexes, constraints  
-- `/data` — Preloaded lookup tables and example transactional entries  
-- `/docs` — Database operations and data entry guidelines  
+- `/data` — Raw datasets and prefilled lookup tables 
+- `/docs` — Documentation (manuals, ERDs, SOPs) 
 - `/reports` — Generated dashboards, KPI summaries, and compliance reports  
 - `/app` — Future Shiny dashboards and analytics  
 - `/notebooks` — Data exploration, validation scripts, simulations
