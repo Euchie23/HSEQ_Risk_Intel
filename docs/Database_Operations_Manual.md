@@ -153,17 +153,13 @@ Two pathways can lead to corrective action.
 
 ### Path A — From Observations
 
-**Observation → (possible) Incident → Intervention → Corrective Action**
+**Observation → (may generate) Hazard → Corrective Action**
+OR
+**Observation → (may create) Corrective Action**
 
-### Path B — From Hazard Reviews
+### Path B — From Hazard Identification/Reviews
 
-
-Tables involved:
-
-- `observations`
-- `incidents`
-- `interventions`
-- `corrective_actions`
+**Task → Hazard → Risk Rating → Hazard Control → (if adequate) Corrective Action**
 
 ---
 
@@ -207,6 +203,8 @@ These tables are updated **every working day**:
 
 | Table | Purpose |
 |---|---|
+| `observations` | Unsafe acts / unsafe conditions |
+| `hazards` | Risk identification during work |
 | `incidents` | When something happens |
 | `interventions` | Immediate response actions |
 | `corrective_actions` | Long-term fixes and tracking |
