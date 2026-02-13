@@ -25,10 +25,12 @@ All tasks, hazards, observations, incidents, toolbox topics, and operational rec
 
 For portfolio and GitHub publication, the following governance rules are applied:
 
+- All workers’ names are anonymized
 - Worker names are anonymized
 - Site and company identifiers are generalized
 - PTW, JSA, and certification numbers are anonymized
 - Company-specific risk matrices, severity scales, and probability classifications are **abstracted** into generic lookup tables
+- Observations are structured to reflect operational reality without exposing proprietary frameworks
 - No proprietary documents, templates, or internal systems are reproduced
 
 The dataset therefore represents a **structured abstraction of real operational patterns** while fully preserving confidentiality.
@@ -51,7 +53,7 @@ This demonstrates how real-world HSE intelligence can be translated into a gover
 
 ## 📌 Conceptual Risk Intelligence Model
 
-**high-level task-centered ERD diagram**
+**high-level operational risk intelligence ERD diagram**
 
 ```mermaid
 erDiagram
@@ -73,7 +75,9 @@ erDiagram
     INCIDENT ||--o{ INTERVENTION : triggers
     INTERVENTION ||--o{ CORRECTIVE_ACTION : results_in
 
-    TASK ||--o{ OBSERVATION : generates
+    PERSON ||--o{ OBSERVATION : reports
+    OBSERVATION }o--|| TASK : may_relate_to
+    OBSERVATION ||--o{ OBSERVATION_ZONE_MAP : spans
     OBSERVATION ||--o{ CORRECTIVE_ACTION : may_create
 
     TASK ||--o{ HAZARD : exposes
@@ -88,12 +92,11 @@ erDiagram
     HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
 
     WEATHER }o--|| TASK : influences
-
-``` 
+```
 
 **Conceptual Flow (simplified)**:
 - The ERD shows how **tasks drive incidents and hazards**, which in turn trigger interventions and corrective actions.  
-- Observations and weather influence incidents and tasks.  
+- Observations and weather can influence incidents, tasks as well as corrective actions .  
 - Controls mitigate hazards and can feed back into corrective actions.
 
 ---
