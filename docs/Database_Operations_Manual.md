@@ -61,30 +61,46 @@ This database is a **Risk Intelligence System** designed to:
 - Learn from risk **after events occur**
 - Enable predictive analytics in the future
 
-The entire system is **task-centered**. Every record in the database connects back to a task performed on site.
+The system is **task-centered where applicable**, but **observations can exist independently** of tasks to capture site hazards or unsafe acts.
 
 ---
 
-## 2. The Golden Rule of the Database
+## 2. Observations Update Rule
 
-> Nothing happens on site unless it is linked to a **TASK**
+| Column | Notes |
+|--------|-------|
+| `observation_id` | PK |
+| `observation_date` | Date of observation |
+| `person_id` | Reporter |
+| `task_id` | Nullable; may not be linked to a task |
+| `phase_id` | Phase observed (optional if task not linked) |
+| `observation_type_id` | Type of observation |
+| `description` | Observation description |
+| `validated_by` | Reviewer |
+| `linked_incident_id` | FK incidents (nullable) |
+| `validation_outcome` | Observation outcome |
+| `notes` | Optional context (e.g., location within site, PPE check reference) |
 
-This rule ensures the data can be analyzed meaningfully.
+> Observations **not linked to a task** are still actionable and may trigger incidents, interventions, and corrective actions.
 
-The following tables must always reference a `task_id`:
+---
+
+## 3. Task-Linked Records
+
+When tasks exist, they drive most operational records:
 
 - Attendance
 - PPE Checks
-- Observations
 - Hazards
 - Incidents
 - Weather
+- Task-specific observations
 
-If you cannot link a record to a task, the data is being entered incorrectly.
+Records must reference a `task_id` **if applicable**.
 
 ---
 
-## 3. Work Planning Before Execution
+## 4. Work Planning Before Execution
 
 Before any task starts:
 
@@ -106,7 +122,7 @@ Tables involved:
 
 ---
 
-## 4. Risk Assessment Method (Risk Engine)
+## 5. Risk Assessment Method (Risk Engine)
 
 Risk is calculated using three lookup tables:
 
@@ -130,7 +146,7 @@ Tables involved:
 
 ---
 
-## 5. How the System Reacts to Problems
+## 6. How the System Reacts to Problems
 
 Two pathways can lead to corrective action.
 
@@ -150,7 +166,7 @@ Tables involved:
 
 ---
 
-## 6. Daily Data Entry (Operational Monitoring)
+## 7. Daily Data Entry (Operational Monitoring)
 
 These tables are updated **every working day**:
 
@@ -164,7 +180,7 @@ These tables are updated **every working day**:
 
 ---
 
-## 7. Updated When Work is Planned
+## 8. Updated When Work is Planned
 
 | Table | Purpose |
 |---|---|
@@ -174,7 +190,7 @@ These tables are updated **every working day**:
 
 ---
 
-## 8. Updated Occasionally
+## 9. Updated Occasionally
 
 | Table | Purpose |
 |---|---|
@@ -186,7 +202,7 @@ These tables are updated **every working day**:
 
 ---
 
-## 9. Updated Only When Events Occur
+## 10. Updated Only When Events Occur
 
 | Table | Purpose |
 |---|---|
@@ -196,7 +212,7 @@ These tables are updated **every working day**:
 
 ---
 
-## 10. Multi-Site Expansion Rule
+## 11. Multi-Site Expansion Rule
 
 The database is designed to support multiple sites in the future.
 
@@ -209,7 +225,7 @@ This allows the same system to scale across multiple projects while keeping data
 
 ---
 
-## 11. Purpose of Lookup Tables
+## 12. Purpose of Lookup Tables
 
 Lookup tables:
 
@@ -221,28 +237,48 @@ Lookup tables:
 
 ---
 
-## 12. What This System Enables in the Future
+## 13. What This System Enables in the Future
 
-Because every activity links to tasks, this database can support:
+Because most activities link to tasks—but some observations can exist independently—the database can support:
 
-- Risk trend analysis
-- Unsafe behavior prediction
-- Incident likelihood modeling
-- PPE non-compliance trends
-- Environmental risk correlation
+- **Task-linked analytics:**  
+  - Risk trend analysis per task, phase, or zone  
+  - Unsafe behavior prediction during specific tasks  
+  - Incident likelihood modeling tied to task execution  
+  - PPE non-compliance trends for planned work  
+  - Environmental risk correlation by task location and phase
 
-This is the foundation for **predictive safety analytics**.
+- **Task-independent analytics:**  
+  - General site hazard tracking (e.g., perimeter issues, unsafe conditions)  
+  - Observations that trigger interventions or corrective actions without being tied to a specific task  
+  - Longitudinal monitoring of safety trends across zones and phases  
+
+This dual capability lays the foundation for **predictive safety analytics** that reflect real-world operational complexity.
 
 ---
 
-## 13. Correct Way to Enter Data
+## 14. Correct Way to Enter Data
 
 When entering any record, always ask:
 
-> “Which task was this related to?”
+> “Is this observation or event linked to a specific task?”
 
-If the answer is unclear, do not enter the data until the task is identified.
+**Guidelines:**
 
+1. **Task-linked records:**  
+   - Attendance, PPE checks, hazards, incidents, and most observations should reference a `task_id`.  
+   - This ensures accurate risk scoring and trend analysis at the task level.
+
+2. **Task-independent observations:**  
+   - Use this when a hazard, unsafe condition, or general observation **cannot be tied to a specific task**.  
+   - Enter `task_id` as **NULL** and provide context in the `notes` field (e.g., location, zone, or phase).  
+   - These records can still trigger incidents, interventions, and corrective actions.
+
+3. **Mandatory fields:**  
+   - Always include `observation_date`, `person_id`, `observation_type_id`, and a clear `description`.  
+   - Use `notes` for any additional context.
+
+> Entering records correctly ensures both **task-level precision** and **general site safety intelligence** are preserved.
 
 
 
