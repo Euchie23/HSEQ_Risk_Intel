@@ -75,9 +75,8 @@ erDiagram
     INCIDENT ||--o{ INTERVENTION : triggers
     INTERVENTION ||--o{ CORRECTIVE_ACTION : results_in
 
-    PERSON ||--o{ OBSERVATION : reports
-    OBSERVATION }o--|| TASK : may_relate_to
-    OBSERVATION ||--o{ OBSERVATION_ZONE_MAP : spans
+    TASK ||--o{ OBSERVATION : generates
+    OBSERVATION ||--o{ HAZARD : may_generate
     OBSERVATION ||--o{ CORRECTIVE_ACTION : may_create
 
     TASK ||--o{ HAZARD : exposes
