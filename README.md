@@ -94,7 +94,7 @@ erDiagram
 ```
 
 **Conceptual Flow (simplified)**:
-- The ERD shows how **tasks drive incidents and hazards**, which in turn trigger interventions and corrective actions.  
+- The ERD shows how **tasks and observations drive incidents and hazards**, which in turn trigger interventions and hazard controls.  
 - Observations and weather can influence incidents, tasks as well as corrective actions .  
 - Controls mitigate hazards and can feed back into corrective actions.
 
