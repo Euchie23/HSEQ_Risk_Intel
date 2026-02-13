@@ -28,6 +28,7 @@ The published dataset is a **structured abstraction of real operational patterns
 It preserves:
 
 - How tasks create hazards
+- How observations identify task-unrelated hazards
 - How hazards are controlled
 - How incidents occur
 - How interventions and corrective actions are triggered
@@ -81,7 +82,7 @@ The system is **task-centered where applicable**, but **observations can exist i
 | `validation_outcome` | Observation outcome |
 | `notes` | Optional context (e.g., location within site, PPE check reference) |
 
-> Observations **not linked to a task** are still actionable and may trigger incidents, interventions, and corrective actions.
+> Observations **not linked to a task** are still actionable and may identify hazards and trigger incidents, interventions, and corrective actions.
 
 ---
 
