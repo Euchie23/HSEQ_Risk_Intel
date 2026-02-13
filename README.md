@@ -30,7 +30,7 @@ For portfolio and GitHub publication, the following governance rules are applied
 - Site and company identifiers are generalized
 - PTW, JSA, and certification numbers are anonymized
 - Company-specific risk matrices, severity scales, and probability classifications are **abstracted** into generic lookup tables
-- Observations are structured to reflect operational reality without exposing proprietary frameworks
+- Observations and toolbox discussions reflect operational reality without exposing proprietary frameworks
 - No proprietary documents, templates, or internal systems are reproduced
 
 The dataset therefore represents a **structured abstraction of real operational patterns** while fully preserving confidentiality.
@@ -91,6 +91,10 @@ erDiagram
     HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
 
     WEATHER }o--|| TASK : influences
+
+    TOOLBOX_MEETING ||--o{ TOOLBOX_MEETING_TASK : discusses
+    TASK ||--o{ TOOLBOX_MEETING_TASK : covered_in
+
 ```
 
 **Conceptual Flow (simplified)**:
@@ -107,6 +111,7 @@ erDiagram
 | **Daily Safety & Attendance** | `Attendance & PPE Checks` | Logs worker presence, PPE compliance, and safety observations | 🟢 Planned | Daily KPI Dashboard |
 | **Task & Hazard Management** | `Task Execution & JSA` | Track tasks, hazards, and controls; link to risk scoring | 🟢 Planned | KPI Trends, Risk Matrix |
 | **Incident & Intervention Tracking** | `Incident → Intervention → Corrective Action` | Capture incidents, trigger interventions, monitor action closure | 🟢 Planned | Corrective Action Reports |
+|**Observational Intelligence** | `Observations → Hazards → ObservationZones` | Track zones where hazards are most observed | 🟢 Planned | KPI Observation Hotspots |
 | **Toolbox Meetings** | `Safety Topics & Engagement` | Daily toolbox topics, attendance, and discussion logs | 🟢 Planned | Toolbox Dashboard |
 | **Risk Analytics Engine** | `Risk Scoring & Trend Analysis` | Aggregate severity, probability, and control effectiveness into dynamic risk scores | 🟢 Planned | Predictive Risk Dashboard |
 | **Multi-Site & Longitudinal Insights** | `Cross-Site & Phase Analysis` | Compare safety performance across sites and phases | 🟢 Planned | Cross-Site KPI Dashboards |
@@ -125,7 +130,8 @@ erDiagram
 | PPE Compliance | PPE_CHECKS | Percent compliant / non-compliant |
 | JSA & PTW Completion | JSA, PTW | Tasks completed vs planned |
 | Open Corrective Actions | CORRECTIVE_ACTION | Count of Open / In Progress / Overdue |
-| Toolbox Attendance | TOOLBOX_MEETING | Number of attendees vs expected |
+| Observation Hotspots | OBSERVATION, OBSERVATION_ZONE | Zones with repeated issues | 
+| Toolbox Hazard Topics | TOOLBOX_MEETING | Number of attendees vs expected |
 | Weather Summary | WEATHER | Wind, rain, temperature, solar load |
 
 > Future KPI tabs can expand to multi-site comparisons, trend charts, and predictive risk scoring.
@@ -171,7 +177,8 @@ erDiagram
 ## 🎯 Key Objectives
 
 - Maintain **real-time safety monitoring** with HSE intelligence  
-- Enable **trend detection** for incidents, hazards, and corrective actions  
+- Enable **trend detection** for incidents, hazards, and corrective actions
+- Preserve **risk engine scoring** logic 
 - Integrate **tasks, attendance, and toolbox meetings** for operational visibility  
 - Provide a **scalable platform** for multi-site analysis  
 - Build **foundation for AI-assisted query interface** and predictive risk insights  
