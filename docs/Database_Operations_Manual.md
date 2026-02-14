@@ -195,15 +195,22 @@ Corrective Actions may originate from three structured pathways:
 3. **Control Effectiveness-driven**
    Hazard → Hazard Control → CONTROL_EFFECTIVENESS_SCALE evaluation → Corrective Action
 
-#### Phase-Aware Implementation
+### Residual Risk
 
-During Excel-based data collection:
-- Low control effectiveness scores are manually flagged for corrective action planning.
+- Each hazard and hazard control stores **residual severity and probability** to quantify risk after controls are applied.
+- Status columns track lifecycle: Open / Controlled / Closed for hazards, Active / Replaced / Closed for hazard controls.
 
-After migration to PostgreSQL:
-- Automated or script-based evaluation of `hazard_control.effectiveness_score` may create `corrective_action` entries when below threshold.
+### Phase-Aware Implementation
 
-This ensures proactive governance while maintaining audit control during system transition.
+- During Excel-based data collection:
+  - Residual risk is manually entered
+  - Low control effectiveness is flagged for corrective action planning
+- After migration to PostgreSQL:
+  - Automated evaluation of `hazard_control.effectiveness_rating_id` may create `corrective_action` entries when below threshold
+  - Residual risk values are updated based on control effectiveness
+  - Status columns track active vs resolved controls and hazards
+
+> This ensures proactive governance and continuous risk monitoring across all pathways.
 
 ---
 
