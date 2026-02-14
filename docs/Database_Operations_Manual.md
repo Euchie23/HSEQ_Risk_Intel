@@ -123,6 +123,24 @@ Tables involved:
 - `probability_levels`
 - `risk_matrix`
 
+### Planning Layer Structure (Toolbox Meetings)
+
+Toolbox meetings function as the formal planning layer of the system.
+
+During a toolbox meeting:
+
+- Hazards are identified through `toolbox_meeting_task`
+- Planned controls are assigned before task execution
+- These planned hazards and controls exist independently of task exposure
+
+This ensures risk anticipation is structurally separated from operational execution.
+
+Tables involved:
+
+- `toolbox_meeting`
+- `toolbox_meeting_task`
+- `hazards`
+- `hazard_controls`
 
 ---
 
@@ -148,29 +166,44 @@ Tables involved:
 - `hazard_controls`
 - `site_controls`
 
+### Control Effectiveness Governance Link
+
+Control effectiveness is evaluated using `control_effectiveness_scale`.
+
+If effectiveness falls below an operationally defined threshold:
+
+- A Corrective Action may be generated linked directly to the `hazard_control` record.
+
+This creates a direct governance pathway from mitigation degradation to formal action.
+
+
 ---
 
 ## 6. How the System Reacts to Problems
 
-Two pathways can lead to corrective action.
-
-### Path A — From Observations
-
-**Observation → (may generate) Hazard → Corrective Action**
-OR
-**Observation → (may create) Corrective Action**
-
-### Path B — From Hazard Identification / Risk Review
-
-**Task → Hazard → Risk Rating → Hazard Control**
-
 ### Governance Logic
 
-Hazard controls are evaluated using the CONTROL_EFFECTIVENESS_SCALE.
+Corrective Actions may originate from three structured pathways:
 
-If control effectiveness falls below a defined operational threshold, the system may automatically generate a Corrective Action linked directly to the HAZARD_CONTROL record.
+1. **Observation-driven**
+   Observation → (may generate) Hazard → Corrective Action  
+   OR Observation → (may create) Corrective Action
 
-This enables proactive governance independent of Incident or Observation pathways.
+2. **Incident-driven**
+   Task → Hazard → Incident → Intervention → Corrective Action
+
+3. **Control Effectiveness-driven**
+   Hazard → Hazard Control → CONTROL_EFFECTIVENESS_SCALE evaluation → Corrective Action
+
+#### Phase-Aware Implementation
+
+During Excel-based data collection:
+- Low control effectiveness scores are manually flagged for corrective action planning.
+
+After migration to PostgreSQL:
+- Automated or script-based evaluation of `hazard_control.effectiveness_score` may create `corrective_action` entries when below threshold.
+
+This ensures proactive governance while maintaining audit control during system transition.
 
 ---
 
@@ -266,6 +299,8 @@ Because hazards can originate from **task execution, independent observations, o
   - Longitudinal monitoring of safety trends across zones and phases  
 
 This dual capability lays the foundation for **predictive safety analytics** that reflect real-world operational complexity.
+- Automated identification of degrading controls based on effectiveness scoring trends
+- Proactive corrective action forecasting when mitigation performance weakens
 
 ---
 
