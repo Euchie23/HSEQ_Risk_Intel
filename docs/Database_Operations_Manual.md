@@ -164,7 +164,13 @@ OR
 
 **Task → Hazard → Risk Rating → Hazard Control**
 
-If controls are ineffective or insufficient → **Corrective Action**
+### Governance Logic
+
+Hazard controls are evaluated using the CONTROL_EFFECTIVENESS_SCALE.
+
+If control effectiveness falls below a defined operational threshold, the system may automatically generate a Corrective Action linked directly to the HAZARD_CONTROL record.
+
+This enables proactive governance independent of Incident or Observation pathways.
 
 ---
 
