@@ -170,7 +170,7 @@ erDiagram
 
 ## 📘 Documentation & Manuals
 
-- **Database Operations Manual** → `/docs/Database_Operations_Manual.md`  
+- [**Database Operations Manual**]() 
   Includes:  
   - Lookup tables and dictionaries  
   - Transactional table structures  
