@@ -99,8 +99,8 @@ erDiagram
 
 **Conceptual Flow (simplified):**
 
-- The ERD illustrates how tasks serve as operational anchors within the Site → Zone → Phase → Task hierarchy, while observations may also exist independently to capture broader site risks.  
-- Hazards may originate from task exposure, observational findings, or pre-task toolbox discussions.  
+- The ERD illustrates how tasks serve as operational anchors within the **Site → Zone → Phase → Task hierarchy**, while observations may also exist independently to capture broader site risks.  
+- Hazards may originate from **task exposure, observational findings, or pre-task toolbox discussions**.  
 - Incidents, interventions, and corrective actions form the structured reactive response chain.  
 - Hazard controls and control effectiveness evaluations enable quantified risk assessment and mitigation validation.  
 - Weather and environmental factors provide contextual exposure analysis.
