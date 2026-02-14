@@ -101,12 +101,17 @@ erDiagram
     WEATHER }o--|| TASK : influences
 ```
 
-**Conceptual Flow (simplified):**
+**Conceptual Flow (enhanced):**
 
-- The ERD illustrates how tasks serve as operational anchors within the **Site → Zone → Phase → Task hierarchy**, while observations may also exist independently to capture broader site risks.  
-- Hazards may originate from **task exposure, observational findings, or pre-task toolbox discussions**.  
-- Incidents, interventions, and corrective actions form the structured reactive response chain.  
-- Hazard controls and control effectiveness evaluations enable quantified risk assessment and mitigation validation.  
+- The ERD illustrates how tasks serve as operational anchors within the **Site → Zone → Phase → Task hierarchy**, while observations may also exist independently to capture broader site risks.
+- Hazards may originate from **task exposure, observational findings, or pre-task toolbox discussions**.
+- Hazard Controls are implemented and evaluated via the **Control Effectiveness Scale**.
+- Residual risk is calculated for both hazards and controls to quantify remaining risk after mitigation.
+- Corrective Actions are created:
+  - Directly from observations
+  - From hazard controls that fail effectiveness evaluation
+  - Through incident → intervention pathways
+- The loop continues until hazard is mitigated, corrective action is closed, and residual risk is reduced.
 - Weather and environmental factors provide contextual exposure analysis.
 
 ---
