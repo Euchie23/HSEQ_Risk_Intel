@@ -91,11 +91,11 @@ erDiagram
     HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
     HAZARD_CONTROL ||--o{ CORRECTIVE_ACTION : may_trigger
 
+    TOOLBOX_MEETING ||--o{ TOOLBOX_MEETING_TASK : links
+    TOOLBOX_MEETING_TASK ||--o{ HAZARD : identifies
+    TOOLBOX_MEETING_TASK ||--o{ HAZARD_CONTROL : planned_controls
+
     WEATHER }o--|| TASK : influences
-
-    TOOLBOX_MEETING ||--o{ TOOLBOX_MEETING_TASK : discusses
-    TASK ||--o{ TOOLBOX_MEETING_TASK : covered_in
-
 ```
 
 **Conceptual Flow (simplified):**
