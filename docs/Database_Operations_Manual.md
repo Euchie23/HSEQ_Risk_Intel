@@ -62,7 +62,8 @@ This database is a **Risk Intelligence System** designed to:
 - Learn from risk **after events occur**
 - Enable predictive analytics in the future
 
-The system is **task-centered where applicable**, but **observations can exist independently** of tasks to capture site hazards or unsafe acts.
+The system is **task-anchored within the Site → Zone → Phase hierarchy**, while allowing **observations and certain hazards to exist independently of tasks** to reflect real-world operational complexity.
+
 
 ---
 
@@ -114,12 +115,14 @@ This ensures risk is controlled **before exposure**.
 
 Tables involved:
 
-- `ptw`
-- `jsa`
-- `ptw_certifications`
-- `jsa_certifications`
-- `person_certifications`
-- `tasks`
+- `hazards`
+- `hazard_controls`
+- `control`
+- `control_effectiveness_scale`
+- `severity_levels`
+- `probability_levels`
+- `risk_matrix`
+
 
 ---
 
@@ -157,15 +160,17 @@ Two pathways can lead to corrective action.
 OR
 **Observation → (may create) Corrective Action**
 
-### Path B — From Hazard Identification/Reviews
+### Path B — From Hazard Identification / Risk Review
 
-**Task → Hazard → Risk Rating → Hazard Control → (if adequate) Corrective Action**
+**Task → Hazard → Risk Rating → Hazard Control**
+
+If controls are ineffective or insufficient → **Corrective Action**
 
 ---
 
 ## 7. Daily Data Entry (Operational Monitoring)
 
-These tables are updated **every working day**:
+These tables are commonly updated during **daily operational monitoring** when applicable:
 
 | Table | Purpose |
 |---|---|
@@ -200,6 +205,8 @@ These tables are updated **every working day**:
 ---
 
 ## 10. Updated Only When Events Occur
+
+These tables are updated only when triggered by **specific events, hazard identification, or incident escalation**:
 
 | Table | Purpose |
 |---|---|
@@ -238,7 +245,7 @@ Lookup tables:
 
 ## 13. What This System Enables in the Future
 
-Because most activities link to tasks—but some observations can exist independently—the database can support:
+Because hazards can originate from **task execution, independent observations, or toolbox planning discussions**, the database supports analysis of both **proactive and reactive** safety performance.
 
 - **Task-linked analytics:**  
   - Risk trend analysis per task, phase, or zone  
