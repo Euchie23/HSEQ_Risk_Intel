@@ -5,12 +5,13 @@
 The **HSE Risk Intelligence** system provides a comprehensive safety, hazard, and operational monitoring platform for industrial worksites.  
 It integrates **attendance, tasks, hazards, incidents, observations, toolbox meetings, and corrective actions** into a centralized database, enabling:  
 
-- Real-time operational oversight and daily KPI reporting  
-- Task and hazard trend analysis  
-- Incident root-cause analysis and intervention tracking  
+- Real-time operational oversight and structured daily KPI reporting  
+- Task, phase, and zone-level hazard trend analysis  
+- Incident root-cause analysis and intervention lifecycle tracking  
+- Planning-versus-execution validation through toolbox-to-task linkage  
 - Evidence-based decision-making for site management and executives  
-- Scalable architecture to include multiple sites and longitudinal safety insights  
-- Future AI-assisted querying and reporting  
+- Scalable architecture supporting multi-site and longitudinal safety insights  
+- Future AI-assisted querying and predictive safety analytics   
 
 This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics.
 
@@ -25,13 +26,12 @@ All tasks, hazards, observations, incidents, toolbox topics, and operational rec
 
 For portfolio and GitHub publication, the following governance rules are applied:
 
-- All workers’ names are anonymized
-- Worker names are anonymized
-- Site and company identifiers are generalized
-- PTW, JSA, and certification numbers are anonymized
-- Company-specific risk matrices, severity scales, and probability classifications are **abstracted** into generic lookup tables
-- Observations and toolbox discussions reflect operational reality without exposing proprietary frameworks
-- No proprietary documents, templates, or internal systems are reproduced
+- Worker names are anonymized in the `PERSON` table  
+- Site and company identifiers are generalized in the `SITE` and `ZONE` tables  
+- PTW, JSA, and certification numbers are anonymized  
+- Company-specific risk matrices, severity scales, and probability classifications are abstracted into generic lookup tables  
+- Observations and toolbox discussions reflect operational reality without exposing proprietary frameworks  
+- No proprietary documents, templates, or internal systems are reproduced  
 
 The dataset therefore represents a **structured abstraction of real operational patterns** while fully preserving confidentiality.
 
@@ -97,25 +97,36 @@ erDiagram
 
 ```
 
-**Conceptual Flow (simplified)**:
-- The ERD shows how **tasks and observations drive incidents and hazards**, which in turn trigger interventions and hazard controls.  
-- Observations and weather can influence incidents, tasks as well as corrective actions .  
-- Controls mitigate hazards and can feed back into corrective actions.
+**Conceptual Flow (simplified):**
+
+- The ERD illustrates how tasks serve as operational anchors within the Site → Zone → Phase → Task hierarchy, while observations may also exist independently to capture broader site risks.  
+- Hazards may originate from task exposure, observational findings, or pre-task toolbox discussions.  
+- Incidents, interventions, and corrective actions form the structured reactive response chain.  
+- Hazard controls and control effectiveness evaluations enable quantified risk assessment and mitigation validation.  
+- Weather and environmental factors provide contextual exposure analysis.
 
 ---
 
 ## 📊 Operational Modules & Data Flow
 
+### Status Legend
+
+| Status | Meaning |
+|--------|---------|
+| 🟢 | Schema Implemented |
+| 🟡 | Data Population / Refinement in Progress |
+| 🔵 | Future Enhancement |
+
 | Module | Stage | Function | Status | Dashboard / Output |
 |--------|-------|---------|--------|------------------|
-| **Daily Safety & Attendance** | `Attendance & PPE Checks` | Logs worker presence, PPE compliance, and safety observations | 🟢 Planned | Daily KPI Dashboard |
-| **Task & Hazard Management** | `Task Execution & JSA` | Track tasks, hazards, and controls; link to risk scoring | 🟢 Planned | KPI Trends, Risk Matrix |
-| **Incident & Intervention Tracking** | `Incident → Intervention → Corrective Action` | Capture incidents, trigger interventions, monitor action closure | 🟢 Planned | Corrective Action Reports |
-|**Observational Intelligence** | `Observations → Hazards → ObservationZones` | Track zones where hazards are most observed | 🟢 Planned | KPI Observation Hotspots |
-| **Toolbox Meetings** | `Safety Topics & Engagement` | Daily toolbox topics, attendance, and discussion logs | 🟢 Planned | Toolbox Dashboard |
-| **Risk Analytics Engine** | `Risk Scoring & Trend Analysis` | Aggregate severity, probability, and control effectiveness into dynamic risk scores | 🟢 Planned | Predictive Risk Dashboard |
-| **Multi-Site & Longitudinal Insights** | `Cross-Site & Phase Analysis` | Compare safety performance across sites and phases | 🟢 Planned | Cross-Site KPI Dashboards |
-| **AI-Assisted Query Interface** | `Interactive Questioning & Reporting` | Future functionality: natural language or voice queries mapped to SQL reporting | 🔵 Future | Ad-hoc Reports, Automated Queries |
+| **Daily Safety & Attendance** | `Attendance & PPE Checks` | Logs worker presence, PPE compliance, and safety observations | 🟢 | Daily KPI Dashboard |
+| **Task & Hazard Management** | `Task Execution & JSA` | Track tasks, hazards, and controls; link to risk scoring | 🟢 | KPI Trends, Risk Matrix |
+| **Incident & Intervention Tracking** | `Incident → Intervention → Corrective Action` | Capture incidents, trigger interventions, monitor action closure | 🟢 | Corrective Action Reports |
+|**Observational Intelligence** | `Observations → Hazards → ObservationZones` | Track zones where hazards are most observed | 🟢 | KPI Observation Hotspots |
+| **Toolbox Meetings** | `Safety Topics & Engagement` | Daily toolbox topics, attendance, and discussion logs | 🟢 | Toolbox Dashboard |
+| **Risk Analytics Engine** | `Risk Scoring & Trend Analysis` | Aggregate severity, probability, and control effectiveness into dynamic risk scores | 🟢 | Predictive Risk Dashboard |
+| **Multi-Site & Longitudinal Insights** | `Cross-Site & Phase Analysis` | Compare safety performance across sites and phases | 🔵  | Cross-Site KPI Dashboards |
+| **AI-Assisted Query Interface** | `Interactive Questioning & Reporting` | Future functionality: natural language or voice queries mapped to SQL reporting | 🔵 | Ad-hoc Reports, Automated Queries |
 
 > **Note:** For MVP with one site, the app will focus on **daily KPIs dashboard** and executive overview. Other modules are conceptually included for future expansion.
 
@@ -146,7 +157,7 @@ erDiagram
 - Preloaded lookup dictionaries for standardization (e.g., PPE types, task categories, risk matrices)  
 
 ### **Analytics**
-- Risk scoring: Severity × Probability × Control effectiveness  
+- Risk scoring incorporates severity, probability, and control effectiveness to support inherent and residual risk evaluation  
 - Daily KPI aggregation and reporting  
 - Historical trend analysis (incidents, corrective actions, hazard types)  
 
@@ -176,12 +187,13 @@ erDiagram
 
 ## 🎯 Key Objectives
 
-- Maintain **real-time safety monitoring** with HSE intelligence  
-- Enable **trend detection** for incidents, hazards, and corrective actions
-- Preserve **risk engine scoring** logic 
-- Integrate **tasks, attendance, and toolbox meetings** for operational visibility  
-- Provide a **scalable platform** for multi-site analysis  
-- Build **foundation for AI-assisted query interface** and predictive risk insights  
+- Maintain structured real-time safety monitoring with HSE intelligence  
+- Enable trend detection for incidents, hazards, and corrective actions  
+- Preserve quantified risk engine scoring logic  
+- Support planning-versus-execution validation through toolbox linkage  
+- Integrate tasks, attendance, observations, and controls for operational visibility  
+- Provide a scalable foundation for multi-site and longitudinal analysis  
+- Establish groundwork for AI-assisted querying and predictive risk modeling  
 
 ---
 
