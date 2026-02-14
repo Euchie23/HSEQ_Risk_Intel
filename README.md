@@ -89,6 +89,7 @@ erDiagram
     PROBABILITY_LEVELS ||--o{ RISK_MATRIX : defines
 
     HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
+    HAZARD_CONTROL ||--o{ CORRECTIVE_ACTION : may_trigger
 
     WEATHER }o--|| TASK : influences
 
