@@ -61,6 +61,9 @@ erDiagram
     ZONE ||--o{ PHASE : includes
     PHASE ||--o{ TASK : defines
 
+    PHASE ||--o{ METHOD_STATEMENT : defines
+    METHOD_STATEMENT ||--o{ JSA : produces
+
     PERSON ||--o{ ATTENDANCE : logs
     ATTENDANCE }o--|| TASK : supports
 
