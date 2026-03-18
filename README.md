@@ -63,6 +63,12 @@ erDiagram
     PHASE ||--o{ METHOD_STATEMENT : defines
     METHOD_STATEMENT ||--o{ JSA : produces
 
+    JSA ||--o{ JSA_CERTIFICATION : requires
+    JSA }o--|| JSA_SOURCE_TYPE : classified_by
+
+    PTW ||--o{ PTW_CERTIFICATION : requires
+    PTW }o--|| PTW_SOURCE_TYPE : classified_by
+
     PERSON ||--o{ ATTENDANCE : logs
     ATTENDANCE }o--|| TASK : supports
 
@@ -70,8 +76,6 @@ erDiagram
     TASK ||--o{ JSA : requires
 
     PERSON ||--o{ PERSON_CERTIFICATION : holds
-    PTW ||--o{ PTW_CERTIFICATION : requires
-    JSA ||--o{ JSA_CERTIFICATION : requires
 
     TASK ||--o{ INCIDENT : leads_to
     INCIDENT ||--o{ INTERVENTION : triggers
@@ -101,10 +105,6 @@ erDiagram
     TOOLBOX_MEETING_TASK ||--o{ HAZARD_CONTROL : planned_controls
 
     WEATHER }o--|| TASK : influences
-
-    PTW }o--|| PTW_SOURCE_TYPE : classified_by
-    JSA }o--|| JSA_SOURCE_TYPE : classified_by
-
 ```
 
 **Conceptual Flow (enhanced):**
