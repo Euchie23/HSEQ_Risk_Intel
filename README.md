@@ -60,7 +60,6 @@ erDiagram
     SITE ||--o{ ZONE : contains
     ZONE ||--o{ PHASE : includes
     PHASE ||--o{ TASK : defines
-
     PHASE ||--o{ METHOD_STATEMENT : defines
     METHOD_STATEMENT ||--o{ JSA : produces
 
