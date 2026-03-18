@@ -113,6 +113,7 @@ erDiagram
   - Through incident → intervention pathways
 - The loop continues until hazard is mitigated, corrective action is closed, and residual risk is reduced.
 - Weather and environmental factors provide contextual exposure analysis.
+- Legal-grade traceability of PTW and JSA documentation through source classification (Contractor vs Client), enabling audit readiness, compliance validation and dispute resolution support
 
 ---
 
