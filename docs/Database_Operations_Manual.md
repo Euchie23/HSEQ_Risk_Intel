@@ -123,6 +123,48 @@ Tables involved:
 - `probability_levels`
 - `risk_matrix`
 
+
+### PTW & JSA Source Classification (Governance Requirement)
+
+Both Permit To Work (PTW) and Job Safety Analysis (JSA) records may originate from different governing bodies:
+
+- Main Contractor
+- Client
+
+Due to legal and compliance requirements, these must be explicitly tracked.
+
+This is implemented using lookup tables:
+
+- `ptw_source_type`
+- `jsa_source_type`
+
+Each PTW and JSA record must include:
+
+- `ptw_source_type_id`
+- `jsa_source_type_id`
+
+### Why This Matters
+
+- Ensures legal traceability of safety documentation
+- Allows filtering between contractor-issued and client-issued permits
+- Supports audit scenarios and dispute resolution
+- Enables comparative analysis between planning authorities
+
+### Data Entry Rule
+
+When entering PTW or JSA:
+
+> Always specify the source (Contractor or Client)
+
+If both exist for the same task:
+
+- Both records must be entered separately
+- Each linked to the same `task_id`
+- Each with its respective source type
+
+This ensures full governance and audit coverage.
+
+
 ### Planning Layer Structure (Toolbox Meetings)
 
 Toolbox meetings function as the formal planning layer of the system.
