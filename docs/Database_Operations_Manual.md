@@ -64,6 +64,9 @@ This database is a **Risk Intelligence System** designed to:
 
 The system is **task-anchored within the Site → Zone → Phase hierarchy**, while allowing **observations and certain hazards to exist independently of tasks** to reflect real-world operational complexity.
 
+> **Certifications Alignment:**  
+> This system and its operational rules are designed following internationally recognized HSE standards, including **NEBOSH General Certificate principles** and **ISO 45001:2018 Occupational Health & Safety Management Systems**, ensuring hazard identification, risk assessment, control evaluation, and corrective action workflows meet consultancy-grade guidelines.
+
 
 ---
 
