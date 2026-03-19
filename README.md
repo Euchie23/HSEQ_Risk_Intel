@@ -58,7 +58,7 @@ This demonstrates how real-world HSE intelligence can be translated into a gover
 ```mermaid
 erDiagram
 
-1️⃣ Site Hierarchy (Top-Level)
+
     SITE ||--o{ ZONE : contains
     ZONE ||--o{ PHASE : includes
     PHASE ||--o{ TASK : defines
@@ -71,7 +71,7 @@ erDiagram
     PTW ||--o{ PTW_CERTIFICATION : requires
     PTW }o--|| PTW_SOURCE_TYPE : classified_by
 
-2️⃣ Task Operational Layer
+
     TASK ||--o{ PTW : requires
     TASK ||--o{ JSA : requires
     TASK ||--o{ OBSERVATION  : may_link_to
@@ -95,17 +95,16 @@ erDiagram
     INCIDENT ||--o{ INTERVENTION : triggers
     INTERVENTION ||--o{ CORRECTIVE_ACTION : may_result_in
 
-3️⃣ Toolbox / Safety Planning Layer
+
     TOOLBOX_MEETING ||--o{ TOOLBOX_MEETING_TASK : links
     TOOLBOX_MEETING_TASK ||--o{ HAZARD : identifies
     TOOLBOX_MEETING_TASK ||--o{ HAZARD_CONTROL : planned_controls
 
-4️⃣ Personnel / Certifications Layer
+
     PERSON ||--o{ PERSON_CERTIFICATION : holds
     PERSON ||--o{ ATTENDANCE : logs
     ATTENDANCE }o--|| TASK : supports
 
-5️⃣ Environmental / Governance
     WEATHER }o--|| TASK : influences
 ```
 
