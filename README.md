@@ -13,8 +13,16 @@ It integrates **attendance, tasks, hazards, incidents, observations, toolbox mee
 - Scalable architecture supporting multi-site and longitudinal safety insights  
 - Future AI-assisted querying and predictive safety analytics   
 
-This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics.
+This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics, **aligned with international standards including NEBOSH and ISO 45001:2018 Occupational Health & Safety Management Systems**.  
 
+The system applies globally recognized principles of:
+
+- Hazard identification and risk assessment (NEBOSH / ISO 45001)  
+- Permit to Work (PTW) and Job Safety Analysis (JSA) governance  
+- Risk matrices with severity and probability scoring  
+- Control effectiveness evaluation and corrective action workflows  
+- Audit-ready documentation traceability and continuous improvement
+  
 ---
 
 ## 🔐 Data Ethics, Governance & Portfolio Use
@@ -35,7 +43,7 @@ For portfolio and GitHub publication, the following governance rules are applied
 
 The dataset therefore represents a **structured abstraction of real operational patterns** while fully preserving confidentiality.
 
-This demonstrates how real-world HSE intelligence can be translated into a governed, relational database suitable for analytics, dashboards, and future AI-assisted querying — while adhering to professional data ethics and privacy standards.
+This demonstrates how real-world HSE intelligence can be translated into a **governed, relational database suitable for analytics, dashboards, and future AI-assisted querying**, adhering to **professional data ethics, privacy standards, and international HSE compliance guidelines (NEBOSH and ISO 45001)**.
 
 ---
 
@@ -120,7 +128,7 @@ erDiagram
   - Through incident → intervention pathways
 - The loop continues until hazard is mitigated, corrective action is closed, and residual risk is reduced.
 - Weather and environmental factors provide contextual exposure analysis.
-- Legal-grade traceability of PTW and JSA documentation through source classification (Contractor vs Client), enabling audit readiness, compliance validation and dispute resolution support
+- Legal-grade traceability of PTW and JSA documentation through source classification (Contractor vs Client) **enables audit readiness and compliance validation in line with NEBOSH and ISO 45001 guidelines**.
 
 ---
 
@@ -181,7 +189,9 @@ erDiagram
 ### **Shiny App (Planned MVP)**
 - Dashboard tab: Daily KPIs and executive overview  
 - Data exploration tab (optional): Tasks, hazards, observations, incidents  
-- AI query tab (future): Text / voice-driven SQL query generation and report creation  
+- AI query tab (future): Text / voice-driven SQL query generation and report creation
+
+> **Certifications Alignment**: Risk scoring, hazard identification, PTW/JSA governance, and corrective action logic are explicitly aligned with **NEBOSH General Certificate and ISO 45001:2018 standards**.
 
 ---
 
@@ -204,7 +214,7 @@ erDiagram
 
 ## 🎯 Key Objectives
 
-- Maintain structured real-time safety monitoring with HSE intelligence  
+- Maintain structured real-time safety monitoring aligned with **NEBOSH & ISO 45001 principles** 
 - Enable trend detection for incidents, hazards, and corrective actions  
 - Preserve quantified risk engine scoring logic  
 - Support planning-versus-execution validation through toolbox linkage  
