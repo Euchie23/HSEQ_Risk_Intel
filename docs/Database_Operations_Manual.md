@@ -47,7 +47,7 @@ This approach demonstrates how real-world HSE intelligence can be translated int
 - Risk analytics
 - Future AI-assisted querying
 
-…while strictly adhering to professional data ethics, privacy standards, and confidentiality expectations expected at a consultancy level.
+while strictly adhering to professional data ethics, privacy standards, and confidentiality expectations expected at a consultancy level.
 
 ---
 
