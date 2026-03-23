@@ -13,37 +13,39 @@ It integrates **attendance, tasks, hazards, incidents, observations, toolbox mee
 - Scalable architecture supporting multi-site and longitudinal safety insights  
 - Future AI-assisted querying and predictive safety analytics   
 
-This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics, **aligned with international standards including NEBOSH and ISO 45001:2018 Occupational Health & Safety Management Systems**.  
+This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics, **aligned with ISO 45001:2018 management standards and NEBOSH-level technical rigor.**.  
 
-The system applies globally recognized principles of:
+---
 
-- Hazard identification and risk assessment (NEBOSH / ISO 45001)  
-- Permit to Work (PTW) and Job Safety Analysis (JSA) governance  
-- Risk matrices with severity and probability scoring  
-- Control effectiveness evaluation and corrective action workflows  
-- Audit-ready documentation traceability and continuous improvement
+##🛠️ Core Functional Pillars
+
+The system applies globally recognized methodologies for integrated safety management:
+
+  - **Hazard Identification & Risk Assessment (HIRA):** Proactive assessment models based on NEBOSH risk profiling and ISO 45001 workflows.
+  - 
+  - **Administrative Control Governance:** Structured management of Permit to Work (PTW) and Job Safety Analysis (JSA) sequences.
+
+  - **Risk Quantization:** Calibrated severity and probability scoring to prioritize high-risk activities.
+
+  - **Control Effectiveness Evaluation:** Monitoring the hierarchy of controls and the "Check" phase of the PDCA cycle.
+
+  - **Audit-Ready Traceability:** Ensuring all safety observations and overrides are timestamped and reproducible for regulatory review.
   
 ---
 
 ## 🔐 Data Ethics, Governance & Portfolio Use
 
-This project is built from field-derived HSE observations and operational reporting authored by the developer during routine site oversight.  
-It is **not** exported from any proprietary company system or database.
+This project is built from field-derived observations and reporting authored by the developer during routine site oversight. To ensure the highest standards of Professional Ethics and Information Security, the following governance protocols are applied:
 
-All tasks, hazards, observations, incidents, toolbox topics, and operational records originate from daily HSE reports and PPE verification sheets personally prepared as part of on-site responsibilities.
+  - **Data Minimization & Pseudonymization:** All Personally Identifiable Information (PII) within the `PERSON` and `CERTIFICATION` tables is pseudonymized.
 
-For portfolio and GitHub publication, the following governance rules are applied:
+  - **Contextual Abstraction:** Site and company identifiers in the `SITE` and `ZONE` tables are generalized to protect corporate anonymity.
 
-- Worker names are anonymized in the `PERSON` table  
-- Site and company identifiers are generalized in the `SITE` and `ZONE` tables  
-- PTW, JSA, and certification numbers are anonymized  
-- Company-specific risk matrices, severity scales, and probability classifications are abstracted into generic lookup tables  
-- Observations and toolbox discussions reflect operational reality without exposing proprietary frameworks  
-- No proprietary documents, templates, or internal systems are reproduced  
+  - **Technical Anonymization:** Numerical sequences for PTW, JSA, and certifications are abstracted to prevent the reconstruction of specific historical site activities.
 
-The dataset therefore represents a **structured abstraction of real operational patterns** while fully preserving confidentiality.
+  - **IP Protection:** Proprietary risk matrices and severity scales are translated into generalized lookup tables, ensuring that third-party intellectual property is never reproduced verbatim.
 
-This demonstrates how real-world HSE intelligence can be translated into a **governed, relational database suitable for analytics, dashboards, and future AI-assisted querying**, adhering to **professional data ethics, privacy standards, and international HSE compliance guidelines (NEBOSH and ISO 45001)**.
+  - **Integrity of Operational Patterns:** The dataset reflects the authentic "logic" of how hazards and controls interact, providing a governed, relational database suitable for advanced analytics and future AI-assisted querying while maintaining total confidentiality.
 
 ---
 
