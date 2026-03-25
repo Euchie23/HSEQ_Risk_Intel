@@ -61,7 +61,7 @@ This project is built from field-derived observations and reporting authored by 
   
 ---
 
-## 📌 Conceptual Risk Intelligence Model
+##  Conceptual Risk Intelligence Model
 
 **high-level operational risk intelligence ERD diagram**
 
