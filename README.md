@@ -199,7 +199,7 @@ erDiagram
 
 ## 📘 Documentation & Manuals
 
-- [**Database Operations Manual**]() <br> 
+- [**Database Operations Manual**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/docs/Database_Operations_Manual.md) <br> 
   Includes:  
   - Lookup tables and dictionaries  
   - Transactional table structures  
