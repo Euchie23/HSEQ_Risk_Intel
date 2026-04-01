@@ -22,7 +22,7 @@ This project demonstrates **senior-level consultancy competencies** in database 
 The system applies globally recognized methodologies for integrated safety management:
 
   - **Hazard Identification & Risk Assessment (HIRA):** Proactive assessment models based on NEBOSH risk profiling and ISO 45001 workflows.
-  - 
+
   - **Administrative Control Governance:** Structured management of Permit to Work (PTW) and Job Safety Analysis (JSA) sequences.
 
   - **Risk Quantization:** Calibrated severity and probability scoring to prioritize high-risk activities.
