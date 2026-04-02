@@ -132,7 +132,7 @@ erDiagram
 - Weather and environmental factors provide contextual exposure analysis.
 - Legal-grade traceability of PTW and JSA documentation through source classification (Contractor vs Client) **enables audit readiness and compliance validation in line with NEBOSH and ISO 45001 guidelines**.
 
-👉 [How It Works (Simple Overview)](./docs/HOW_IT_WORKS.md)
+👉 [How It Works (Simple Overview)](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/HOW_IT_WORKS.md)
 
 ---
 
