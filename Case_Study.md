@@ -1,4 +1,4 @@
-# 🦺 HSE Risk Intelligence — Operational Risk & Safety Decision Support System (Prototype Case Study)
+# 🦺 HSE Risk Intelligence — Operational Risk & Safety Decision Support System
 
 ---
 
@@ -24,6 +24,25 @@ The **HSE Risk Intelligence system** was designed to address this gap by transfo
 - HSE Officers & Compliance Teams  
 - Project Managers & Engineers  
 - Consultants & Auditors  
+
+---
+
+## ⚠️ Development Status
+
+This system is currently in the **design and database development phase**.
+
+The core components already implemented include:
+- Relational database schema and entity relationships  
+- Risk scoring logic (severity, probability, residual risk)  
+- Workflow design linking hazards, controls, incidents, and corrective actions  
+- Governance structure aligned with ISO 45001 and NEBOSH principles  
+
+Planned next steps include:
+- Interactive dashboards for KPI monitoring and reporting  
+- Multi-site performance comparison views  
+- AI-assisted query interface for non-technical users  
+
+👉 This reflects a **real-world system development approach**, where a robust data foundation is established before analytics and user interfaces are layered on top.
 
 ---
 
