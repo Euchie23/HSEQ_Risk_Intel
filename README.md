@@ -36,7 +36,8 @@ The system applies globally recognized methodologies for integrated safety manag
 
 ## 🔐 Data Ethics, Governance & Portfolio Use
 
-This project is built from field-derived observations and reporting authored by the developer during routine site oversight. To ensure the highest standards of Professional Ethics and Information Security, the following governance protocols are applied:
+This project is built from field-derived observations and reporting authored by the developer during routine site oversight on a large-scale construction project involving the development of aviation fuel infrastructure near a Caribbean-based international airport environment.
+To ensure the highest standards of Professional Ethics and Information Security, the following governance protocols are applied:
 
   - **Data Minimization & Pseudonymization:** All Personally Identifiable Information (PII) within the `PERSON` and `CERTIFICATION` tables is pseudonymized.
 
