@@ -62,7 +62,7 @@ This database is a **Risk Intelligence System** designed to:
 - Learn from risk **after events occur**
 - Enable predictive analytics in the future
 
-The system is **task-anchored within the Site → Zone → Phase hierarchy**, while allowing **observations and certain hazards to exist independently of tasks** to reflect real-world operational complexity.
+The system is anchored on **task execution within the Site → Zone → Phase hierarchy**, while task templates define planned work and observations may exist independently of task execution to reflect real-world operational complexity.
 
 > **Certifications Alignment:**  
 > This system and its operational rules are designed following internationally recognized HSE standards, including **NEBOSH General Certificate principles** and **ISO 45001:2018 Occupational Health & Safety Management Systems**, ensuring hazard identification, risk assessment, control evaluation, and corrective action workflows meet consultancy-grade guidelines.
@@ -77,7 +77,7 @@ The system is **task-anchored within the Site → Zone → Phase hierarchy**, wh
 | `observation_id` | PK |
 | `observation_date` | Date of observation |
 | `person_id` | Reporter |
-| `task_id` | Nullable; may not be linked to a task |
+| `task_execution_id` | Nullable; may not be linked to a specific task execution |
 | `phase_id` | Phase observed (optional if task not linked) |
 | `observation_type_id` | Type of observation |
 | `description` | Observation description |
@@ -101,7 +101,9 @@ When tasks exist, they drive most operational records:
 - Weather
 - Task-specific observations
 
-Records must reference a `task_id` **if applicable**.
+Records must reference a `task_execution_id` if applicable.
+
+This ensures all operational data reflects actual work performed rather than planned work.
 
 ---
 
@@ -162,8 +164,9 @@ When entering PTW or JSA:
 If both exist for the same task:
 
 - Both records must be entered separately
-- Each linked to the same `task_id`
+- Each linked to the same `task_execution_id`
 - Each with its respective source type
+
 
 This ensures full governance and audit coverage.
 
@@ -261,7 +264,7 @@ Corrective Actions may originate from three structured pathways:
 
 ## 7. Daily Data Entry (Operational Monitoring)
 
-These tables are commonly updated during **daily operational monitoring** when applicable:
+These tables are linked primarily to **task execution records**, representing real-time site activity.
 
 | Table | Purpose |
 |---|---|
@@ -279,7 +282,8 @@ These tables are commonly updated during **daily operational monitoring** when a
 |---|---|
 | `ptw` | Work authorization |
 | `jsa` | Risk planning |
-| `tasks` | Defines work executed |
+|  `tasks` | Defines planned work (task templates) |
+|  `task_execution` | Represents actual work performed |
 
 ---
 
@@ -315,7 +319,7 @@ The database is designed to support multiple sites in the future.
 
 Hierarchy:
 
-**Site → Zone → Phase → Task**
+**Site → Zone → Phase → Task (Template) → Task Execution**
 
 
 This allows the same system to scale across multiple projects while keeping data consistent.
@@ -365,12 +369,12 @@ When entering any record, always ask:
 **Guidelines:**
 
 1. **Task-linked records:**  
-   - Attendance, PPE checks, hazards, incidents, and most observations should reference a `task_id`.  
+   - Attendance, PPE checks, hazards, incidents, and most observations should reference a `task_execution_id`.  
    - This ensures accurate risk scoring and trend analysis at the task level.
 
 2. **Task-independent observations:**  
    - Use this when a hazard, unsafe condition, or general observation **cannot be tied to a specific task**.  
-   - Enter `task_id` as **NULL** and provide context in the `notes` field (e.g., location, zone, or phase).  
+   - Enter `task_execution_id` as **NULL** and provide context in the `notes` field (e.g., location, zone, or phase).  
    - These records can still trigger incidents, interventions, and corrective actions.
 
 3. **Mandatory fields:**  
