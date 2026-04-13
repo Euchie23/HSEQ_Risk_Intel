@@ -48,15 +48,16 @@ Planned next steps include:
 
 ## 🎯 Scenario / Use Case
 
-**Scenario:** Active construction or industrial site with multiple zones and concurrent tasks.
+**Scenario:** Active construction or industrial site with multiple zones and concurrent task executions performed by different teams and contractors.
 
 Daily operations include:
 - Workforce attendance and PPE compliance tracking  
 - Task execution across phases  
 - Hazard identification during work  
 - Observations of unsafe acts or conditions  
-- Incident reporting and response  
+- Incident reporting and response
 
+  
 **Decision Needs:**
 - Which tasks today pose the highest risk?  
 - Are controls effectively reducing risk?  
@@ -64,15 +65,16 @@ Daily operations include:
 - Are corrective actions being completed on time?  
 
 **How the System Supports Decisions:**
-- Links tasks → hazards → controls → incidents → corrective actions  
+- Links task templates → task executions → hazards → controls → incidents → corrective actions  
+- Connects workforce structure (organizations and teams) to operational risk exposure  
 - Provides structured visibility across the full risk lifecycle  
-- Enables daily KPI tracking and trend analysis  
+- Enables daily KPI tracking and trend analysis   
 
 ---
 
 ## 📊 Key Insights & Findings
 
-- **Risk is not static:** Hazards evolve during task execution, requiring continuous monitoring rather than one-time assessment.  
+- **Risk is not static:** Hazards evolve during task execution and vary across teams and contractors, requiring continuous monitoring rather than one-time assessment.   
 - **Control effectiveness is critical:** Simply having controls is insufficient—tracking whether they reduce risk provides actionable insight.  
 - **Recurring patterns emerge:** Structured data reveals repeated issues by zone, task type, or phase.  
 - **Accountability improves outcomes:** Linking corrective actions to hazards and incidents ensures issues are tracked to resolution.  
@@ -89,12 +91,15 @@ The system is built as a **relational risk intelligence architecture**.
 ### Core Workflow
 
 1. **Data Capture**  
-   - Attendance, tasks, hazards, observations, incidents  
+   - Attendance, task executions, hazards, observations, incidents   
 
 2. **Data Linking**  
-   - Tasks linked to hazards  
+   - Task templates define planned work  
+   - Task executions capture actual work performed  
+   - Task executions linked to hazards  
    - Hazards linked to controls  
    - Incidents linked to interventions and corrective actions  
+   - Workforce entities (teams and organizations) linked to task executions   
 
 3. **Risk Evaluation**  
    - Risk scored using severity and probability  
@@ -107,8 +112,9 @@ The system is built as a **relational risk intelligence architecture**.
 
 5. **Outputs**  
    - Daily KPIs  
-   - Risk trends by task, zone, and phase  
-   - Audit-ready traceability  
+   - Risk trends by task execution, zone, and phase  
+   - Team and contractor-level risk exposure analysis  
+   - Audit-ready traceability    
 
 ---
 
@@ -129,6 +135,7 @@ Outputs should be used as **decision-support tools**, not absolute measures.
 - Structuring operational data is often more valuable than adding complex analytics  
 - Linking data across workflows creates **visibility that standalone reports cannot provide**  
 - Control effectiveness tracking is a key gap in many real-world safety systems  
+- Workforce structure (organizations and teams) plays a critical role in understanding risk exposure and accountability  
 - Designing for governance and auditability from the start improves long-term usability  
 - A strong data foundation enables future **predictive analytics and AI integration**  
 
