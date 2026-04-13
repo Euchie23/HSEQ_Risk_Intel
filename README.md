@@ -121,8 +121,9 @@ erDiagram
 
 **Conceptual Flow (enhanced):**
 
-- The ERD illustrates how task templates define planned work, while task executions represent real-world activities performed on site. within the **Site → Zone → Phase → Task hierarchy**, while observations may also exist independently to capture broader site risks.
-- Hazards may originate from **task exposure, observational findings, or pre-task toolbox discussions**.
+- The ERD illustrates how task templates define planned work, while task executions represent real-world activities performed on site within the **Site → Zone → Phase hierarchy**.
+- Observations may also exist independently to capture broader site risks not tied to specific task executions.
+- Hazards may originate from **task execution exposure, observational findings, or pre-task toolbox discussions**.
 - Hazard Controls are implemented and evaluated via the **Control Effectiveness Scale**.
 - Residual risk is calculated for both hazards and controls to quantify remaining risk after mitigation.
 - Corrective Actions are created:
@@ -130,8 +131,8 @@ erDiagram
   - From hazard controls that fail effectiveness evaluation
   - Through incident → intervention pathways
 - The loop continues until hazard is mitigated, corrective action is closed, and residual risk is reduced.
-- Weather and environmental factors provide contextual exposure analysis.
-- Legal-grade traceability of PTW and JSA documentation through source classification (Contractor vs Client) **enables audit readiness and compliance validation in line with NEBOSH and ISO 45001 guidelines**.
+- Weather and environmental factors provide contextual exposure analysis at the task execution level.
+- Legal-grade traceability of PTW and JSA documentation through source classification (Contractor vs Client) enables audit readiness and compliance validation in line with NEBOSH and ISO 45001 guidelines.
 
 - Workforce structure is modeled through:
   - Organizations (who employs personnel)
@@ -172,14 +173,14 @@ erDiagram
 
 | KPI | Source Table | Notes |
 |-----|--------------|------|
-| High-risk tasks today | TASK + HAZARD + RISK_MATRIX | Show tasks exceeding risk threshold |
+| High-risk tasks today | TASK_EXECUTION + HAZARD + RISK_MATRIX | Show active high-risk work |
 | Attendance | ATTENDANCE | Percent present vs expected |
 | PPE Compliance | PPE_CHECKS | Percent compliant / non-compliant |
-| JSA & PTW Completion | JSA, PTW | Tasks completed vs planned |
+| JSA & PTW Completion | TASK_EXECUTION + JSA + PTW | Linked to executed work |
 | Open Corrective Actions | CORRECTIVE_ACTION | Count of Open / In Progress / Overdue |
-| Observation Hotspots | OBSERVATION, OBSERVATION_ZONE | Zones with repeated issues | 
+| Observation Hotspots | OBSERVATION, OBSERVATION_ZONE | Zones with repeated issues |
 | Toolbox Hazard Topics | TOOLBOX_MEETING | Number of attendees vs expected |
-| Weather Summary | WEATHER | Wind, rain, temperature, solar load |
+| Weather Summary | WEATHER | Environmental exposure |
 | Contractor Risk Exposure | INCIDENT + ORGANIZATION | Identify high-risk contractors |
 | Team Performance | TASK_EXECUTION + TEAM | Compare team safety performance |
 
