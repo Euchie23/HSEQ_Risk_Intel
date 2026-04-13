@@ -27,7 +27,8 @@ It helps teams **capture safety information properly**, **connect it automatical
 Each day, basic site information is recorded:
 
 - Who is on site (attendance)  
-- What work is being carried out (tasks)  
+- What work is planned (task templates)  
+- What work is actually executed on the day (task executions)   
 - What risks are involved (hazards)  
 - Any issues identified (observations or incidents)  
 
@@ -41,11 +42,30 @@ Once information is recorded, the system connects everything in the background.
 
 For example:
 
-- Tasks are linked to hazards  
-- Hazards are linked to controls  
-- Incidents lead to corrective actions  
+- Task executions are linked to teams and workers  
+- Teams are linked to contractors and organizations  
+- Hazards are linked to actual work being performed  
+- Incidents are tied to specific task executions, locations, and teams  
 
 👉 This removes the need to manually combine reports and creates a **single, connected view of operations**.
+
+---
+
+## 🏢 Workforce & Contractor Structure
+
+The system distinguishes between:
+
+- Who employs a worker (organization)
+- Who supervises the work (team)
+- Who performs the task (assigned personnel)
+
+This allows the system to reflect real construction environments where:
+
+- Workers may be employed by subcontractors  
+- Work is supervised by a main contractor  
+- Multiple teams may perform the same task simultaneously  
+
+👉 This ensures accurate accountability, contractor performance tracking, and operational visibility.
 
 ---
 
@@ -56,7 +76,9 @@ The system converts daily inputs into clear insights such as:
 - Which areas of the site are becoming unsafe  
 - Which tasks carry the highest risk  
 - Whether safety procedures are being followed  
-- What issues are recurring over time  
+- What issues are recurring over time
+- Which contractor or subcontractor is associated with higher risk  
+- Which teams are performing safely or unsafely  
 
 👉 This allows teams to quickly understand **what needs attention**, without reviewing multiple reports.
 
@@ -82,7 +104,8 @@ From a central view, users can:
 
 - Compare safety performance across sites  
 - Identify higher-risk locations  
-- Monitor compliance and outstanding actions  
+- Monitor compliance and outstanding actions
+- Compare performance across contractors, teams, and sites   
 
 👉 This provides visibility across operations **without relying on separate reports from each site**.
 
@@ -165,4 +188,4 @@ This system addresses that by:
 
 ## 🧠 In One Sentence
 
-**It transforms everyday safety data into a connected system that helps teams understand risk, track actions, and make better decisions before incidents occur.**
+**It transforms daily safety data into a structured system that connects people, teams, contractors, and operations — enabling proactive risk management and informed decision-making.**
