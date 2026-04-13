@@ -69,10 +69,24 @@ This project is built from field-derived observations and reporting authored by 
 ```mermaid
 erDiagram
 
-
     SITE ||--o{ ZONE : contains
     ZONE ||--o{ PHASE : includes
+
     PHASE ||--o{ TASK : defines
+    TASK ||--o{ TASK_EXECUTION : instantiated_as
+
+    TASK_EXECUTION }o--|| TEAM : executed_by
+    TEAM }o--|| ORGANIZATION : owned_by
+
+    PERSON }o--|| ORGANIZATION : employed_by
+    PERSON }o--o{ TEAM : assigned_to
+
+    TASK_EXECUTION ||--o{ TASK_ASSIGNMENT : has
+    TASK_ASSIGNMENT }o--|| PERSON : assigned_worker
+
+    TASK_EXECUTION ||--o{ PTW : requires
+    TASK_EXECUTION ||--o{ JSA : requires
+
     PHASE ||--o{ METHOD_STATEMENT : defines
     METHOD_STATEMENT ||--o{ JSA : produces
 
@@ -82,12 +96,9 @@ erDiagram
     PTW ||--o{ PTW_CERTIFICATION : requires
     PTW }o--|| PTW_SOURCE_TYPE : classified_by
 
-
-    TASK ||--o{ PTW : requires
-    TASK ||--o{ JSA : requires
-    TASK ||--o{ OBSERVATION  : may_link_to
-    TASK ||--o{ HAZARD : exposes
-    TASK ||--o{ INCIDENT : leads_to
+    TASK_EXECUTION ||--o{ OBSERVATION : may_link_to
+    TASK_EXECUTION ||--o{ HAZARD : exposes
+    TASK_EXECUTION ||--o{ INCIDENT : leads_to
 
     OBSERVATION ||--o{ HAZARD : may_generate
     OBSERVATION ||--o{ CORRECTIVE_ACTION : may_create
@@ -106,17 +117,16 @@ erDiagram
     INCIDENT ||--o{ INTERVENTION : triggers
     INTERVENTION ||--o{ CORRECTIVE_ACTION : may_result_in
 
-
     TOOLBOX_MEETING ||--o{ TOOLBOX_MEETING_TASK : links
     TOOLBOX_MEETING_TASK ||--o{ HAZARD : identifies
     TOOLBOX_MEETING_TASK ||--o{ HAZARD_CONTROL : planned_controls
 
-
     PERSON ||--o{ PERSON_CERTIFICATION : holds
     PERSON ||--o{ ATTENDANCE : logs
-    ATTENDANCE }o--|| TASK : supports
 
-    WEATHER }o--|| TASK : influences
+    ATTENDANCE }o--o{ TASK_EXECUTION : supports
+
+    WEATHER }o--o{ TASK_EXECUTION : influences
 ```
 
 **Conceptual Flow (enhanced):**
