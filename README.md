@@ -1,4 +1,4 @@
-# 🦺 HSE Risk Intelligence — Project Portfolio
+![SOL HIA Depot - Deburring Manhole - Apr 14, 2026 (3)](https://github.com/user-attachments/assets/9f43f9e2-1e29-4c4c-b062-f4ba81a73e3b)# 🦺 HSE Risk Intelligence — Project Portfolio
 
 ## 🌍 Real-World Value
 
@@ -82,9 +82,6 @@ erDiagram
     PERSON }o--|| ORGANIZATION : employed_by
     PERSON }o--o{ TEAM : assigned_to
 
-    TASK_EXECUTION ||--o{ TASK_ASSIGNMENT : has
-    TASK_ASSIGNMENT }o--|| PERSON : assigned_worker
-
     TASK_EXECUTION ||--o{ PTW : requires
     TASK_EXECUTION ||--o{ JSA : requires
 
@@ -127,8 +124,9 @@ erDiagram
 
     ATTENDANCE }o--o{ TASK_EXECUTION : supports
 
-    WEATHER }o--o{ TASK_EXECUTION : influences
+    WEATHER ||--o{ TASK_EXECUTION : influences
 ```
+
 
 **Conceptual Flow (enhanced):**
 
