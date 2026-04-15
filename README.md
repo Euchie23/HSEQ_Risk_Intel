@@ -1,4 +1,4 @@
-![SOL HIA Depot - Deburring Manhole - Apr 14, 2026 (3)](https://github.com/user-attachments/assets/9f43f9e2-1e29-4c4c-b062-f4ba81a73e3b)# 🦺 HSE Risk Intelligence — Project Portfolio
+# 🦺 HSE Risk Intelligence — Project Portfolio
 
 ## 🌍 Real-World Value
 
