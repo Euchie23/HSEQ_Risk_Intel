@@ -3,7 +3,7 @@
 ## 🌍 Real-World Value
 
 The **HSE Risk Intelligence** system provides a comprehensive safety, hazard, and operational monitoring platform for industrial worksites.  
-It integrates **task planning (task templates), real-world execution (task executions), workforce structures (organizations and teams), attendance, hazards, incidents, observations, toolbox meetings, and corrective actions**:  
+It integrates **task planning (task definitions/templates), and real-world execution (task executions), workforce structures (organizations and teams), attendance, hazards, incidents, observations, toolbox meetings, and corrective actions**:  
 
 - Real-time operational oversight and structured daily KPI reporting  
 - Task, phase, and zone-level hazard trend analysis  
@@ -130,7 +130,7 @@ erDiagram
 
 **Conceptual Flow (enhanced):**
 
-- The ERD illustrates how task templates define planned work, while task executions represent real-world activities performed on site within the **Site → Zone → Phase hierarchy**.
+- The ERD illustrates how tasks (defined templates) represent planned work, while task executions represent real-world activities performed on site within the **Site → Zone → Phase hierarchy.**.
 - Observations may also exist independently to capture broader site risks not tied to specific task executions.
 - Hazards may originate from **task execution exposure, observational findings, or pre-task toolbox discussions**.
 - Hazard Controls are implemented and evaluated via the **Control Effectiveness Scale**.
@@ -146,7 +146,7 @@ erDiagram
 - Workforce structure is modeled through:
   - Organizations (who employs personnel)
   - Teams (who execute work operationally)
-  - Task assignments (who performs each task execution)
+  - Task executions (which capture when and how work is performed, including the personnel involved)
 
 👉 [How It Works (Simple Overview)](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/HOW_IT_WORKS.md)
 
