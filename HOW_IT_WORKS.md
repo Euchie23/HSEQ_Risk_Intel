@@ -42,7 +42,7 @@ Once information is recorded, the system connects everything in the background.
 
 For example:
 
-- Task executions are linked to teams and workers  
+- Task executions are linked to teams, and worker involvement is captured through attendance and PPE compliance records. 
 - Teams are linked to contractors and organizations  
 - Hazards are linked to actual work being performed  
 - Incidents are tied to specific task executions, locations, and teams  
