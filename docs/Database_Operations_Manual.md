@@ -115,16 +115,24 @@ Rules:
 
 ## 5. Planning Layer (Toolbox Meetings)
 
-Toolbox meetings define **pre-task risk planning**:
+Toolbox meetings represent the **operational planning layer** of the system.
 
-- Hazards identified  
-- Controls planned  
-- Independent of exposure  
+Unlike formal planning instruments such as PTW and JSA, which are structured and document-controlled, toolbox meetings capture **dynamic, real-time risk identification before task execution**.
 
-Tables:
+During toolbox discussions:
+
+- Hazards are identified based on current site conditions
+- Controls are proposed and communicated to the workforce
+- Task-specific risks may be refined or expanded beyond formal documentation
+
+This makes toolbox meetings a critical bridge between **planned risk (JSA/PTW)** and **actual operational exposure (task execution)**.
+
+Tables involved:
+
 - `toolbox_meeting`
 - `toolbox_meeting_task`
-
+- `hazards`
+- `hazard_controls`
 ---
 
 ## 6. Conditions & Exposure 
