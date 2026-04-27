@@ -37,7 +37,29 @@ Each day, users enter site data through a structured interface:
 
 ---
 
-## 🔗 2. Automatic Data Connection
+## 🧰 2. Pre-Task Planning (Toolbox Meetings)
+
+Before work begins, teams typically conduct a **toolbox meeting**.
+
+This is where:
+
+- The task is discussed  
+- Site conditions are reviewed  
+- Hazards are identified in real time  
+- Controls and precautions are agreed upon  
+
+Unlike formal documents such as PTW (Permit to Work) and JSA (Job Safety Analysis), toolbox meetings are **dynamic and based on actual site conditions at that moment**.
+
+👉 This makes toolbox meetings the **operational planning layer** of the system.
+
+The hazards and controls identified here are then captured and linked to the task execution, forming the **foundation for risk evaluation**.
+
+👉 In simple terms:  
+**Toolbox meetings ensure that real-world risks are identified before work starts — not just what was planned on paper.**
+
+---
+
+## 🔗 3. Automatic Data Connection
 
 All inputs are automatically linked:
 
@@ -50,7 +72,7 @@ All inputs are automatically linked:
 
 ---
 
-## ⚙️ 3. Automatic Risk Detection
+## ⚙️ 4. Automatic Risk Detection
 
 ### Condition-Based Hazard Identification
 The system detects hazards automatically based on conditions:
@@ -69,7 +91,7 @@ Risk is calculated using:
 
 ---
 
-## 🧠 4. Bowtie Risk Modeling
+## 🧠 5. Bowtie Risk Modeling
 
 Each hazard is structured using:
 
@@ -81,7 +103,7 @@ Each hazard is structured using:
 
 ---
 
-## 🛡️ 5. Barrier Integrity Evaluation
+## 🛡️ 6. Barrier Integrity Evaluation
 
 Barriers are scored based on:
 
@@ -93,7 +115,7 @@ Barriers are scored based on:
 
 ---
 
-## ⚡ 6. Event-Driven Automation
+## ⚡ 7. Event-Driven Automation
 
 The system reacts automatically to events:
 
@@ -111,7 +133,7 @@ It can:
 
 ---
 
-## 📌 7. Corrective Actions & Tracking
+## 📌 8. Corrective Actions & Tracking
 
 Issues trigger actions:
 
@@ -122,7 +144,7 @@ Issues trigger actions:
 
 ---
 
-## 📊 8. Decision Support
+## 📊 9. Decision Support
 
 The system evaluates:
 
@@ -138,7 +160,7 @@ The system evaluates:
 
 ---
 
-## 🔮 9. Scenario Simulation (What-If)
+## 🔮 10. Scenario Simulation (What-If)
 
 Users can simulate:
 
@@ -154,7 +176,7 @@ The system explains:
 
 ---
 
-## 📄 10. Automated Reporting
+## 📄 11. Automated Reporting
 
 Reports are generated with:
 
@@ -170,7 +192,7 @@ Reports are generated with:
 
 ---
 
-## 🔄 11. Submission to Management
+## 🔄 12. Submission to Management
 
 Reports are:
 
@@ -194,7 +216,7 @@ The system models real-world operations:
 
 ---
 
-## 📈 12. Pattern Recognition
+## 📈 13. Pattern Recognition
 
 Over time, the system identifies:
 
@@ -205,7 +227,7 @@ Over time, the system identifies:
 
 ---
 
-## 💬 13. Future: Natural Language Queries
+## 💬 14. Future: Natural Language Queries
 
 Planned feature:
 
