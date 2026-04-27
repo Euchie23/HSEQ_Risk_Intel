@@ -51,7 +51,7 @@ The system is anchored on:
 **Site → Zone → Phase → Task → Task Execution**
 with **observations** and **hazards** also able to exist independently.
 
-> **Alignment:** NEBOSH + ISO 45001:2018 + Barrier-Based Risk Management (BP / Shell / TotalEnergies philosophy)
+> **Alignment:** NEBOSH + ISO 45001:2018 + Barrier-Based Risk Management
 
 ---
 
