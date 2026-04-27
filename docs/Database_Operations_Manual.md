@@ -127,7 +127,7 @@ Tables:
 
 ---
 
-## 6. Conditions & Exposure (NEW)
+## 6. Conditions & Exposure 
 
 Tables:
 - `task_conditions`
@@ -162,7 +162,7 @@ Using:
 
 ---
 
-## 8. Bowtie Risk Model (NEW)
+## 8. Bowtie Risk Model
 
 Tables:
 - `bowtie_threats`
@@ -179,7 +179,7 @@ Defines:
 
 ---
 
-## 9. Barrier Integrity Scoring (NEW)
+## 9. Barrier Integrity Scoring
 
 Barriers are evaluated using:
 
@@ -197,7 +197,7 @@ Output:
 
 ---
 
-## 10. Enhanced Risk Engine (UPDATED)
+## 10. Enhanced Risk Engine 
 
 Risk is now calculated using:
 
@@ -213,7 +213,7 @@ Outputs:
 
 ---
 
-## 11. Automation Layer (NEW)
+## 11. Automation Layer 
 
 Triggered by events:
 
@@ -243,7 +243,7 @@ Performs:
 3. Control failure  
    Hazard → Control → Low effectiveness → Action  
 
-4. Automation-driven (NEW)  
+4. Automation-driven  
    High risk → Auto action  
 
 ---
@@ -257,7 +257,7 @@ Performs:
 
 ---
 
-## 14. Simulation Layer (NEW)
+## 14. Simulation Layer 
 
 Simulates:
 
@@ -305,7 +305,7 @@ Outputs:
 
 ---
 
-## 18. Daily Submission (NEW)
+## 18. Daily Submission 
 
 Table:
 - `daily_submission`
@@ -317,7 +317,7 @@ Tracks:
 
 ---
 
-## 19. KPI & Analytics Layer (NEW)
+## 19. KPI & Analytics Layer 
 
 Table:
 - `analytics.daily_kpis`
