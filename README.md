@@ -18,7 +18,7 @@ It integrates **task planning (task definitions/templates), and real-world execu
 - **Scenario simulation engine for predictive risk analysis (what-if modelling)**  
 - Future AI-assisted querying and predictive safety analytics  
 
-This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics, **aligned with ISO 45001:2018 management standards, NEBOSH methodology, and barrier-based risk practices used by major oil & gas operators (BP, Shell, TotalEnergies)**.
+This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics, **aligned with ISO 45001:2018 management standards, NEBOSH methodology, and barrier-based risk practices used by major oil & gas operators**.
 
 ---
 
@@ -255,7 +255,7 @@ erDiagram
 ### **Analytics & Risk Engineering**
 - Risk scoring integrates **task conditions, control effectiveness, and barrier integrity**  
 - Bowtie methodology for structured hazard modeling  
-- Barrier scoring aligned with industry safety practices (BP / Shell / TotalEnergies approach)  
+- Barrier scoring aligned with industry safety practices  
 - Scenario simulation for predictive risk analysis  
 - Daily KPI aggregation and persistence (`analytics.daily_kpis`)  
 - Historical trend analysis (incidents, hazards, corrective actions, barrier degradation)  
