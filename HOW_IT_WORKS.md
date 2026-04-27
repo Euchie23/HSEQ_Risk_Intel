@@ -13,179 +13,217 @@ As the project evolves through development, testing, and real-world use, certain
 
 ## 🌍 Overview
 
-The **HSE Risk Intelligence system** is designed to turn everyday site safety activities into clear, structured, and usable insights.
+The **HSE Risk Intelligence System** transforms everyday site safety activities into **structured, connected, and actionable intelligence**.
 
-Instead of relying on scattered spreadsheets, reports, and manual tracking, the system brings everything into **one connected workflow**.
+Instead of relying on spreadsheets and disconnected reports, the system creates **one continuous workflow from data entry → risk evaluation → decision support → reporting → management oversight**.
 
 👉 In simple terms:  
-It helps teams **capture safety information properly**, **connect it automatically**, and **use it to make better decisions**.
+It helps teams **capture safety data correctly**, **connect it automatically**, and **use it to make informed decisions in real time**.
+
 
 ---
 
-## 🧩 1. Daily Safety Information Capture
+## 🧩 1. Guided Daily Data Entry
 
-Each day, basic site information is recorded:
+Each day, users enter site data through a structured interface:
 
-- Who is on site (attendance)  
-- What work is planned (task templates)  
-- What work is actually executed on the day (task executions)   
-- What risks are involved (hazards)  
-- Any issues identified (observations or incidents)  
+- Personnel on site  
+- Task being performed (task execution)  
+- Location (zone & phase)  
+- Working conditions (e.g., at height, confined space)  
+- PPE compliance  
 
-👉 This reflects normal site activity, but ensures it is captured **consistently and in a structured way**.
+👉 This ensures consistency and removes missing or incorrect data.
 
 ---
 
 ## 🔗 2. Automatic Data Connection
 
-Once information is recorded, the system connects everything in the background.
+All inputs are automatically linked:
 
-For example:
+- Workers → Teams → Organizations  
+- Tasks → Locations → Conditions  
+- Hazards → Actual work being performed  
+- Observations → Tasks or general site conditions  
 
-- Task executions are linked to teams, and worker involvement is captured through attendance and PPE compliance records. 
-- Teams are linked to contractors and organizations  
-- Hazards are linked to actual work being performed  
-- Incidents are tied to specific task executions, locations, and teams  
-
-👉 This removes the need to manually combine reports and creates a **single, connected view of operations**.
+👉 This creates a **single source of truth** for operations.
 
 ---
 
-## 🏢 Workforce & Contractor Structure
+## ⚙️ 3. Automatic Risk Detection
 
-The system distinguishes between:
+### Condition-Based Hazard Identification
+The system detects hazards automatically based on conditions:
 
-- Who employs a worker (organization)
-- Who supervises the work (team)
-- Who performs the task (assigned personnel)
+- Example: Working at height → Fall hazard  
 
-This allows the system to reflect real construction environments where:
+### Risk Engine
+Risk is calculated using:
 
-- Workers may be employed by subcontractors  
-- Work is supervised by a main contractor  
-- Multiple teams may perform the same task simultaneously  
+- Conditions  
+- Control effectiveness  
+- PPE compliance  
+- Barrier integrity  
 
-👉 This ensures accurate accountability, contractor performance tracking, and operational visibility.
-
----
-
-## 📊 3. Turning Data into Practical Insights
-
-The system converts daily inputs into clear insights such as:
-
-- Which areas of the site are becoming unsafe  
-- Which tasks carry the highest risk  
-- Whether safety procedures are being followed  
-- What issues are recurring over time
-- Which contractor or subcontractor is associated with higher risk  
-- Which teams are performing safely or unsafely  
-
-👉 This allows teams to quickly understand **what needs attention**, without reviewing multiple reports.
+👉 Produces a dynamic **Low / Medium / High risk level**
 
 ---
 
-## 📌 4. Tracking Actions and Accountability
+## 🧠 4. Bowtie Risk Modeling
 
-When issues are identified, they are tracked through to resolution.
+Each hazard is structured using:
 
-- Hazards or observations trigger corrective actions  
-- Each action is assigned to a responsible person  
-- Progress is monitored (open, in progress, overdue)  
+- Threats (causes)  
+- Barriers (controls)  
+- Consequences (outcomes)  
 
-👉 This ensures that problems are not just recorded, but **actively managed and resolved**.
-
----
-
-## 🌐 5. Multi-Site Visibility
-
-The system is designed to support multiple sites within one structure.
-
-From a central view, users can:
-
-- Compare safety performance across sites  
-- Identify higher-risk locations  
-- Monitor compliance and outstanding actions
-- Compare performance across contractors, teams, and sites   
-
-👉 This provides visibility across operations **without relying on separate reports from each site**.
+👉 This mirrors industry-standard Bowtie methodology.
 
 ---
 
-## 💬 6. Simple Question-Based Access (Planned Feature)
+## 🛡️ 5. Barrier Integrity Evaluation
 
-A planned enhancement is a **question-based interface** that allows users to interact with the system using plain language.
+Barriers are scored based on:
 
-For example:
+- Effectiveness  
+- Reliability  
+- Condition  
 
-- “What are the highest risk tasks today?”  
-- “Which site has the most safety issues this week?”  
-- “Are there any overdue corrective actions?”  
-
-The system would:
-- Interpret the question  
-- Retrieve the relevant data  
-- Present a clear answer or visual summary  
-
-👉 This is intended to make the system accessible to **non-technical users**.
+👉 Weak barriers increase risk and trigger attention.
 
 ---
 
-## 📈 7. Pattern Recognition and Early Risk Signals
+## ⚡ 6. Event-Driven Automation
 
-As more data is collected over time, the system can begin to highlight patterns such as:
+The system reacts automatically to events:
 
-- Repeated issues in specific areas  
-- High-risk task types  
-- Gaps in control effectiveness  
+- Task saved  
+- Risk calculated  
+- Observation recorded  
+- Day submitted  
 
-👉 This supports earlier identification of risk and better planning.
+It can:
+
+- Create hazards  
+- Generate corrective actions  
+- Validate workflow completeness  
+- Send alerts  
 
 ---
 
-## 🧭 8. Guided Data Entry (Future Enhancement)
+## 📌 7. Corrective Actions & Tracking
 
-A future phase of the project includes a **separate but connected guided data entry system**.
+Issues trigger actions:
 
-Instead of using spreadsheets, users would be prompted step by step:
+- Assigned to responsible persons  
+- Tracked (Open / In Progress / Closed)  
 
-- What task is being performed?  
-- Were hazards identified?  
-- Are controls in place?  
-- Were there any incidents or observations?  
+👉 Ensures accountability and resolution.
 
-👉 This approach is intended to:
+---
 
-- Improve data accuracy  
-- Ensure consistency across sites  
-- Reduce errors and missing information  
+## 📊 8. Decision Support
 
-This component is **not required for the initial version** of the system but is planned as a usability and data quality enhancement.
+The system evaluates:
+
+- Risk levels  
+- Hazards  
+- Controls  
+- Actions  
+
+👉 Produces summaries like:
+
+- “Low Risk Operations”  
+- “High Risk — Supervision Required”  
+
+---
+
+## 🔮 9. Scenario Simulation (What-If)
+
+Users can simulate:
+
+- Barrier failure  
+- Control degradation  
+- Condition changes  
+
+The system explains:
+
+- Why risk changes  
+- What caused it  
+- What actions are needed  
+
+---
+
+## 📄 10. Automated Reporting
+
+Reports are generated with:
+
+- Tasks  
+- Personnel  
+- Hazards  
+- Controls & barriers  
+- Actions  
+- Risk decisions  
+- Narrative summary  
+
+👉 Fully structured and audit-ready.
+
+---
+
+## 🔄 11. Submission to Management
+
+Reports are:
+
+- Marked as submitted  
+- Stored in database  
+- Made available to a separate management system  
+
+👉 Data entry and decision-making layers remain separate.
+
+---
+
+## 🏢 Workforce Structure
+
+The system models real-world operations:
+
+- Organizations (employers)  
+- Teams (execution units)  
+- Personnel (workers)  
+
+👉 Enables contractor performance tracking.
+
+---
+
+## 📈 12. Pattern Recognition
+
+Over time, the system identifies:
+
+- Repeated hazards  
+- High-risk tasks  
+- Weak controls  
+- Contractor trends  
+
+---
+
+## 💬 13. Future: Natural Language Queries
+
+Planned feature:
+
+Users can ask:
+
+- “How many workers today?”  
+- “What are the highest risks?”  
+
+👉 System responds automatically.
 
 ---
 
 ## 🎯 Key Outcome
 
-👉 Instead of reacting to incidents after they occur,  
-the system helps teams **identify risks early and take action proactively**.
-
----
-
-## 💡 Why This Matters
-
-Many organizations already collect safety data, but it is often:
-
-- Spread across multiple formats  
-- Inconsistent between sites  
-- Difficult to use for decision-making  
-
-This system addresses that by:
-
-✔ Structuring how data is captured  
-✔ Connecting all safety information  
-✔ Making insights easy to access and understand  
+👉 Shift from **reactive safety** to **proactive risk management**.
 
 ---
 
 ## 🧠 In One Sentence
 
-**It transforms daily safety data into a structured system that connects people, teams, contractors, and operations — enabling proactive risk management and informed decision-making.**
+**A connected safety intelligence system that captures data, evaluates risk, automates decisions, and supports proactive management.**
