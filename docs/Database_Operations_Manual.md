@@ -5,383 +5,372 @@
 
 ## 🔐 Data Ethics, Governance & Portfolio Use
 
-This database design is based on field-derived HSE observations, daily safety reports, PPE verification sheets, and operational records authored by the developer during routine site oversight.
+This database design is based on field-derived HSE observations, daily safety reports, PPE verification sheets, and operational records authored during routine site oversight.
 
-The system is **not** built from any proprietary company database, software export, or internal system.
+The system is **not built from any proprietary company database or internal system**.
 
-All tasks, hazards, observations, incidents, toolbox topics, and attendance records originate from independent HSE documentation prepared on site and later structured into this relational database for analytics and portfolio demonstration.
+All records (tasks, hazards, observations, incidents, toolbox topics, attendance) originate from independent HSE documentation and are structured into a relational model for analytics and portfolio demonstration.
 
 ### For Portfolio / GitHub Use
 
-To ensure professional data ethics and confidentiality, the following rules are applied when publishing this project:
+To ensure professional ethics and confidentiality:
 
-- Worker names are anonymized in the `PERSON` table
-- Site and company identifiers are generalized in the `SITE` and `ZONE` tables
-- PTW IDs, JSA IDs, and certification identifiers are anonymized
-- Company-specific risk matrices, severity definitions, and probability classifications are abstracted into generic lookup tables
-- No proprietary documents, templates, forms, or internal company systems are reproduced
+- Worker identities are anonymized in the `PERSON` table  
+- Site and company identifiers are generalized  
+- PTW, JSA, and certification IDs are abstracted  
+- Risk matrices are generalized into lookup tables  
+- No proprietary templates or internal systems are reproduced  
 
 ### What This Dataset Represents
 
-The published dataset is a **structured abstraction of real operational patterns** observed on site.
+This is a **structured abstraction of real operational safety behavior**, preserving:
 
-It preserves:
+- Task → Hazard relationships  
+- Observation-driven risk identification  
+- Control effectiveness tracking  
+- Incident escalation pathways  
+- Corrective action lifecycle  
+- Workforce and contractor dynamics  
 
-- How tasks create hazards
-- How observations identify task-unrelated hazards
-- How hazards are controlled
-- How incidents occur
-- How interventions and corrective actions are triggered
-- How toolbox meetings, attendance, and PPE checks influence site safety
-
-While ensuring:
-
-> No proprietary company framework, identity, or documentation is exposed.
-
-### Professional Significance
-
-This approach demonstrates how real-world HSE intelligence can be translated into:
-
-- A governed relational database
-- Operational dashboards
-- Risk analytics
-- Future AI-assisted querying
-
-while strictly adhering to professional data ethics, privacy standards, and confidentiality expectations expected at a consultancy level.
+👉 While maintaining full confidentiality.
 
 ---
 
 ## 1. Purpose of the System
 
-This is not an incident log.
+This is **not an incident log**.
 
-This database is a **Risk Intelligence System** designed to:
+It is a **Risk Intelligence System** designed to:
 
 - Understand risk **before work starts**
-- Monitor risk **while work is happening**
+- Monitor risk **during execution**
 - Learn from risk **after events occur**
-- Enable predictive analytics in the future
+- Enable **predictive and simulation-based risk analysis**
 
-The system is anchored on **task execution within the Site → Zone → Phase hierarchy**, while task templates define planned work and observations may exist independently of task execution to reflect real-world operational complexity.
+The system is anchored on:
+**Site → Zone → Phase → Task → Task Execution**
+with **observations** and **hazards** also able to exist independently.
 
-> **Certifications Alignment:**  
-> This system and its operational rules are designed following internationally recognized HSE standards, including **NEBOSH General Certificate principles** and **ISO 45001:2018 Occupational Health & Safety Management Systems**, ensuring hazard identification, risk assessment, control evaluation, and corrective action workflows meet consultancy-grade guidelines.
-
+> **Alignment:** NEBOSH + ISO 45001:2018 + Barrier-Based Risk Management (BP / Shell / TotalEnergies philosophy)
 
 ---
 
 ## 2. Observations Update Rule
 
 | Column | Notes |
-|--------|-------|
-| `observation_id` | PK |
+|--------|------|
+| `observation_id` | Primary key |
 | `observation_date` | Date of observation |
 | `person_id` | Reporter |
-| `task_execution_id` | Nullable; may not be linked to a specific task execution |
-| `phase_id` | Phase observed (optional if task not linked) |
-| `observation_type_id` | Type of observation |
-| `description` | Observation description |
+| `task_execution_id` | Nullable |
+| `phase_id` | Optional |
+| `observation_type_id` | Classification |
+| `description` | Description |
 | `validated_by` | Reviewer |
-| `linked_incident_id` | FK incidents (nullable) |
-| `validation_outcome` | Observation outcome |
-| `notes` | Optional context (e.g., location within site, PPE check reference) |
+| `linked_incident_id` | Optional |
+| `validation_outcome` | Outcome |
+| `notes` | Additional context |
 
-> Observations **not linked to a task** are still actionable and may identify hazards and trigger incidents, interventions, and corrective actions.
+👉 Observations **do not need to be task-linked** to be valid or actionable.
 
 ---
 
 ## 3. Task-Linked Records
 
-When tasks exist, they drive most operational records:
+When tasks exist, they drive:
 
-- Attendance
-- PPE Checks
-- Hazards
-- Incidents
-- Weather
-- Task-specific observations
+- Attendance  
+- PPE checks  
+- Hazards  
+- Incidents  
+- Weather  
+- Task-linked observations  
 
-Records must reference a `task_execution_id` if applicable.
-
-This ensures all operational data reflects actual work performed rather than planned work.
+👉 These must reference `task_execution_id`.
 
 ---
 
 ## 4. Work Planning Before Execution
 
-Before any task starts:
+Before execution:
 
-1. A **Permit To Work (PTW)** is issued
-2. A **Job Safety Analysis (JSA)** is prepared
-3. Required **certifications** are verified
-4. Only qualified **persons** can execute the task
+1. PTW issued  
+2. JSA prepared  
+3. Certifications verified  
+4. Personnel validated  
 
-This ensures risk is controlled **before exposure**.
+### PTW & JSA Source Governance
 
-Tables involved:
-
-- `hazards`
-- `hazard_controls`
-- `control`
-- `control_effectiveness_scale`
-- `severity_levels`
-- `probability_levels`
-- `risk_matrix`
-
-
-### PTW & JSA Source Classification (Governance Requirement)
-
-Both Permit To Work (PTW) and Job Safety Analysis (JSA) records may originate from different governing bodies:
-
-- Main Contractor
-- Client
-
-Due to legal and compliance requirements, these must be explicitly tracked.
-
-This is implemented using lookup tables:
-
+Tables:
 - `ptw_source_type`
 - `jsa_source_type`
 
-Each PTW and JSA record must include:
+Rules:
 
-- `ptw_source_type_id`
-- `jsa_source_type_id`
-
-### Why This Matters
-
-- Ensures legal traceability of safety documentation
-- Allows filtering between contractor-issued and client-issued permits
-- Supports audit scenarios and dispute resolution
-- Enables comparative analysis between planning authorities
-
-### Data Entry Rule
-
-When entering PTW or JSA:
-
-> Always specify the source (Contractor or Client)
-
-If both exist for the same task:
-
-- Both records must be entered separately
-- Each linked to the same `task_execution_id`
-- Each with its respective source type
-
-
-This ensures full governance and audit coverage.
-
-
-### Planning Layer Structure (Toolbox Meetings)
-
-Toolbox meetings function as the formal planning layer of the system.
-
-During a toolbox meeting:
-
-- Hazards are identified through `toolbox_meeting_task`
-- Planned controls are assigned before task execution
-- These planned hazards and controls exist independently of task exposure
-
-This ensures risk anticipation is structurally separated from operational execution.
-
-Tables involved:
-
-- `toolbox_meeting`
-- `toolbox_meeting_task`
-- `hazards`
-- `hazard_controls`
+- Must specify Contractor vs Client  
+- Multiple records allowed per task  
+- Required for audit traceability  
 
 ---
 
-## 5. Risk Assessment Method (Risk Engine)
+## 5. Planning Layer (Toolbox Meetings)
 
-Risk is calculated using three lookup tables:
+Toolbox meetings define **pre-task risk planning**:
+
+- Hazards identified  
+- Controls planned  
+- Independent of exposure  
+
+Tables:
+- `toolbox_meeting`
+- `toolbox_meeting_task`
+
+---
+
+## 6. Conditions & Exposure (NEW)
+
+Tables:
+- `task_conditions`
+- `task_condition_types`
+
+Used to capture:
+
+- At height  
+- Confined space  
+- Hot work  
+- Environmental exposure  
+
+👉 Drives **automatic hazard detection**
+
+---
+
+## 7. Risk Assessment Method (Risk Engine)
+
+### Base Risk
+
+Calculated using:
 
 - `severity_levels`
 - `probability_levels`
 - `risk_matrix`
 
-These define the **initial risk level** of a hazard.
+### Control Adjustment
 
-Risk is then reassessed after controls are applied using:
+Using:
 
 - `control_effectiveness_scale`
 
-This shows whether controls are **actually reducing risk in practice**.
+---
 
-Tables involved:
+## 8. Bowtie Risk Model (NEW)
 
-- `hazards`
-- `hazard_controls`
-- `site_controls`
+Tables:
+- `bowtie_threats`
+- `bowtie_barriers`
+- `bowtie_consequences`
 
-### Control Effectiveness Governance Link
+Defines:
 
-Control effectiveness is evaluated using `control_effectiveness_scale`.
+- Threats → Causes  
+- Barriers → Prevention  
+- Consequences → Outcomes  
 
-If effectiveness falls below an operationally defined threshold:
-
-- A Corrective Action may be generated linked directly to the `hazard_control` record.
-
-This creates a direct governance pathway from mitigation degradation to formal action.
-
+👉 Aligns with oil & gas risk frameworks.
 
 ---
 
-## 6. How the System Reacts to Problems
+## 9. Barrier Integrity Scoring (NEW)
 
-### Governance Logic
+Barriers are evaluated using:
 
-Corrective Actions may originate from three structured pathways:
+- Effectiveness  
+- Reliability  
+- Condition  
 
-1. **Observation-driven**
-   Observation → (may generate) Hazard → Corrective Action  
-   OR Observation → (may create) Corrective Action
+Output:
 
-2. **Incident-driven**
-   Task → Hazard → Incident → Intervention → Corrective Action
+- STRONG  
+- MODERATE  
+- WEAK  
 
-3. **Control Effectiveness-driven**
-   Hazard → Hazard Control → CONTROL_EFFECTIVENESS_SCALE evaluation → Corrective Action
-
-### Residual Risk
-
-- Each hazard and hazard control stores **residual severity and probability** to quantify risk after controls are applied.
-- Status columns track lifecycle: Open / Controlled / Closed for hazards, Active / Replaced / Closed for hazard controls.
-
-### Phase-Aware Implementation
-
-- During Excel-based data collection:
-  - Residual risk is manually entered
-  - Low control effectiveness is flagged for corrective action planning
-- After migration to PostgreSQL:
-  - Automated evaluation of `hazard_control.effectiveness_rating_id` may create `corrective_action` entries when below threshold
-  - Residual risk values are updated based on control effectiveness
-  - Status columns track active vs resolved controls and hazards
-
-> This ensures proactive governance and continuous risk monitoring across all pathways.
+👉 Weak barriers increase risk score.
 
 ---
 
-## 7. Daily Data Entry (Operational Monitoring)
+## 10. Enhanced Risk Engine (UPDATED)
 
-These tables are linked primarily to **task execution records**, representing real-time site activity.
+Risk is now calculated using:
+
+- Conditions (task_conditions)
+- Control effectiveness
+- Barrier penalties
+
+Outputs:
+
+- Base risk score  
+- Final risk score  
+- Risk classification  
+
+---
+
+## 11. Automation Layer (NEW)
+
+Triggered by events:
+
+- `task_saved`
+- `risk_calculated`
+- `day_submitted`
+
+Performs:
+
+- Hazard creation  
+- Corrective action generation  
+- Validation checks  
+- Notifications  
+
+---
+
+## 12. How the System Reacts to Problems
+
+### Corrective Action Pathways
+
+1. Observation-driven  
+   Observation → Hazard → Action  
+
+2. Incident-driven  
+   Task → Hazard → Incident → Intervention → Action  
+
+3. Control failure  
+   Hazard → Control → Low effectiveness → Action  
+
+4. Automation-driven (NEW)  
+   High risk → Auto action  
+
+---
+
+## 13. Residual Risk & Lifecycle
+
+- Residual severity & probability stored  
+- Status tracking:
+  - Hazards: Open / Controlled / Closed  
+  - Controls: Active / Replaced / Closed  
+
+---
+
+## 14. Simulation Layer (NEW)
+
+Simulates:
+
+- Barrier failure  
+- Control degradation  
+
+Outputs:
+
+- Risk change  
+- Root cause explanation  
+- Recommended actions  
+
+---
+
+## 15. Daily Data Entry
 
 | Table | Purpose |
-|---|---|
-| `attendance` | Who was present for the task |
-| `ppe_checks` | PPE compliance monitoring |
-| `observations` | Unsafe acts / unsafe conditions |
-| `hazards` | Risk identification during work |
-| `weather` | Environmental exposure conditions |
+|------|--------|
+| `attendance` | Worker presence |
+| `ppe_checks` | PPE compliance |
+| `observations` | Unsafe acts/conditions |
+| `hazards` | Identified risks |
+| `weather` | Environmental factors |
 
 ---
 
-## 8. Updated When Work is Planned
+## 16. Planning Tables
 
 | Table | Purpose |
-|---|---|
+|------|--------|
 | `ptw` | Work authorization |
 | `jsa` | Risk planning |
-|  `tasks` | Defines planned work (task templates) |
-|  `task_execution` | Represents actual work performed |
+| `tasks` | Templates |
+| `task_execution` | Actual work |
 
 ---
 
-## 9. Updated Occasionally
+## 17. Event-Based Tables
 
 | Table | Purpose |
-|---|---|
-| `persons` | Workforce updates |
-| `person_certifications` | Renewals / expiries |
-| `zones` | Site layout evolution |
-| `phases` | Construction progression |
-| `site_controls` | Permanent or semi-permanent controls |
+|------|--------|
+| `incidents` | Event occurrence |
+| `interventions` | Immediate response |
+| `corrective_actions` | Long-term actions |
 
 ---
 
-## 10. Updated Only When Events Occur
+## 18. Daily Submission (NEW)
 
-These tables are updated only when triggered by **specific events, hazard identification, or incident escalation**:
+Table:
+- `daily_submission`
 
-| Table | Purpose |
-|---|---|
-| `observations` | Unsafe acts / unsafe conditions |
-| `hazards` | Risk identification during work |
-| `incidents` | When something happens |
-| `interventions` | Immediate response actions |
-| `corrective_actions` | Long-term fixes and tracking |
+Tracks:
+
+- Workflow completion  
+- Submission status  
 
 ---
 
-## 11. Multi-Site Expansion Rule
+## 19. KPI & Analytics Layer (NEW)
 
-The database is designed to support multiple sites in the future.
+Table:
+- `analytics.daily_kpis`
 
-Hierarchy:
+Tracks:
 
-**Site → Zone → Phase → Task (Template) → Task Execution**
-
-
-This allows the same system to scale across multiple projects while keeping data consistent.
-
----
-
-## 12. Purpose of Lookup Tables
-
-Lookup tables:
-
-- Standardize reporting
-- Prevent data entry errors
-- Enable reliable analytics
-- Support future machine learning models
-- Ensure consistency across sites and time
+- Leading indicators (PPE, controls, conditions)  
+- Lagging indicators (incidents, actions)  
+- Derived KPIs  
 
 ---
 
-## 13. What This System Enables in the Future
+## 20. Multi-Site Expansion Rule
 
-Because hazards can originate from **task execution, independent observations, or toolbox planning discussions**, the database supports analysis of both **proactive and reactive** safety performance.
+Supports:
+**Site → Zone → Phase → Task → Task Execution**
 
-- **Task-linked analytics:**  
-  - Risk trend analysis per task, phase, or zone  
-  - Unsafe behavior prediction during specific tasks  
-  - Incident likelihood modeling tied to task execution  
-  - PPE non-compliance trends for planned work  
-  - Environmental risk correlation by task location and phase
-
-- **Task-independent analytics:**  
-  - General site hazard tracking (e.g., perimeter issues, unsafe conditions)  
-  - Observations that trigger interventions or corrective actions without being tied to a specific task  
-  - Longitudinal monitoring of safety trends across zones and phases  
-
-This dual capability lays the foundation for **predictive safety analytics** that reflect real-world operational complexity.
-- Automated identification of degrading controls based on effectiveness scoring trends
-- Proactive corrective action forecasting when mitigation performance weakens
 
 ---
 
-## 14. Correct Way to Enter Data
+## 21. Lookup Tables
 
-When entering any record, always ask:
+Used for:
 
-> “Is this observation or event linked to a specific task?”
+- Standardization  
+- Data validation  
+- Analytics consistency  
 
-**Guidelines:**
+---
 
-1. **Task-linked records:**  
-   - Attendance, PPE checks, hazards, incidents, and most observations should reference a `task_execution_id`.  
-   - This ensures accurate risk scoring and trend analysis at the task level.
+## 22. Future Capabilities
 
-2. **Task-independent observations:**  
-   - Use this when a hazard, unsafe condition, or general observation **cannot be tied to a specific task**.  
-   - Enter `task_execution_id` as **NULL** and provide context in the `notes` field (e.g., location, zone, or phase).  
-   - These records can still trigger incidents, interventions, and corrective actions.
+- Predictive risk modeling  
+- AI-assisted querying  
+- Control degradation alerts  
+- Cross-site analytics  
 
-3. **Mandatory fields:**  
-   - Always include `observation_date`, `person_id`, `observation_type_id`, and a clear `description`.  
-   - Use `notes` for any additional context.
+---
 
-> Entering records correctly ensures both **task-level precision** and **general site safety intelligence** are preserved.
+## 23. Correct Way to Enter Data
 
+### Key Rule:
 
+> “Is this linked to a task?”
 
+### Guidelines:
+
+1. Task-linked → include `task_execution_id`  
+2. Not task-linked → use NULL + notes  
+3. Always include required fields  
+
+---
+
+## 🧠 In One Sentence
+
+**A structured, audit-ready risk intelligence database that captures, connects, evaluates, and predicts operational safety risk.**
