@@ -364,7 +364,7 @@ Its focus is:
 
 ---
 
-🧠 In One Sentence
+## 🧠 In One Sentence
 
 HSE Risk Intelligence is a human-guided operational decision-support platform that connects work, observations, hazards, controls, incidents, corrective actions, preparedness, and confirmed reporting into a traceable PostgreSQL data model.
 
