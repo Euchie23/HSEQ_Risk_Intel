@@ -1,41 +1,74 @@
-# 📌 Conceptual Risk Intelligence Model
-
-Below is a high-level, task-centered ERD diagram showing how risk information flows through the system. <br><br>
+## 🔄 Conceptual Operational Risk Model
 
 ```mermaid
-erDiagram
-    SITE ||--o{ ZONE : contains
-    ZONE ||--o{ PHASE : includes
-    PHASE ||--o{ TASK : defines
+flowchart TB
 
-    PERSON ||--o{ ATTENDANCE : logs
-    ATTENDANCE }o--|| TASK : supports
+    subgraph F1["1 · Foundation"]
+        SITE["Site<br/>Section<br/>Zone"]
+        PEOPLE["People<br/>Teams<br/>Organizations"]
+    end
 
-    TASK ||--o{ PTW : requires
-    TASK ||--o{ JSA : requires
+    subgraph F2["2 · Planning & Field Operations"]
+        PLAN["PWP · PTW<br/>JSA · Method Statements"]
+        TOOLBOX["Toolbox<br/>& Preparedness"]
+        TASK["Task<br/>Execution"]
+        WEATHER["Weather<br/>& Conditions"]
 
-    PERSON ||--o{ PERSON_CERTIFICATION : holds
-    PTW ||--o{ PTW_CERTIFICATION : requires
-    JSA ||--o{ JSA_CERTIFICATION : requires
+        PLAN --> TASK
+        TOOLBOX --> TASK
+        WEATHER --> TASK
+    end
 
-    TASK ||--o{ INCIDENT : leads_to
-    INCIDENT ||--o{ INTERVENTION : triggers
-    INTERVENTION ||--o{ CORRECTIVE_ACTION : results_in
+    subgraph F3["3 · Risk Detection"]
+        OBS["Observation"]
+        HAZ["Hazard"]
+        HCTRL["Hazard<br/>Controls"]
 
-    TASK ||--o{ OBSERVATION : generates
-    OBSERVATION ||--o{ CORRECTIVE_ACTION : may_create
+        TASK --> OBS
+        TASK --> HAZ
+        OBS --> HAZ
+        HAZ --> HCTRL
+    end
 
-    TASK ||--o{ HAZARD : exposes
-    HAZARD ||--o{ HAZARD_CONTROL : mitigated_by
-    HAZARD_CONTROL }o--|| CONTROL : uses
+    subgraph F4["4 · Incident Response"]
+        INC["Incident<br/>or Event"]
+        ICTRL["Incident<br/>Controls"]
 
-    HAZARD }o--|| SEVERITY_LEVELS : rated_by
-    HAZARD }o--|| PROBABILITY_LEVELS : rated_by
-    SEVERITY_LEVELS ||--o{ RISK_MATRIX : defines
-    PROBABILITY_LEVELS ||--o{ RISK_MATRIX : defines
+        TASK --> INC
+        OBS --> INC
+        INC --> ICTRL
+    end
 
-    HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
+    subgraph F5["5 · Follow-Up & Assurance"]
+        CA["Corrective<br/>Action"]
+        VERIFY["Verification<br/>& Closure"]
 
-    WEATHER }o--|| TASK : influences
+        OBS --> CA
+        HAZ --> CA
+        HCTRL --> CA
+        INC --> CA
 
+        CA --> VERIFY
+        HCTRL --> VERIFY
+        ICTRL --> VERIFY
+    end
+
+    subgraph F6["6 · Confirmation & Management"]
+        DRILL["Emergency<br/>Drills"]
+        CONFIRM["Daily Close<br/>& Confirmation"]
+        REPORT["Management<br/>Report"]
+        OUTPUT["Analytics-Ready<br/>Outputs"]
+
+        VERIFY --> CONFIRM
+        DRILL --> CONFIRM
+        CONFIRM --> REPORT
+        REPORT --> OUTPUT
+    end
+
+    SITE --> PLAN
+    SITE --> TOOLBOX
+    PEOPLE --> TASK
+    SITE --> DRILL
 ```
+
+This is a conceptual model. The physical PostgreSQL implementation contains additional relationship, lifecycle, audit, lookup, approval, and history tables.
