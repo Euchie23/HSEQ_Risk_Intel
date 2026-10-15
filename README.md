@@ -326,7 +326,8 @@ Secrets and production credentials are never committed to GitHub.
 
 See:
 
-- HOW_IT_WORKS.md — non-technical operational walkthrough
+- [**Operational Architecture**](docs/Operational_Architecture.md) — conceptual system flow
+- [**HOW_IT_WORKS.md**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/HOW_IT_WORKS.md) — non-technical operational walkthrough
 - [**Database Operations Manual**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/docs/Database_Operations_Manual.md) — database and workflow rules
 - database canonical-baseline documentation — rebuild order and migration policy
 
