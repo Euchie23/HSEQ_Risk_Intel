@@ -298,7 +298,7 @@ It means operational records are connected and contextualized so they can answer
 
 Instead of only knowing:
 
-> “An incident occurred.” >
+> “An incident occurred.” 
 
 the data model can help establish:
 
