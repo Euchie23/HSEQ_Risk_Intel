@@ -164,6 +164,10 @@ Confirmed records are associated with a daily confirmation batch and an immutabl
 
 ---
 
+## 🎞️ How the Operational Workflow Connects
+
+![HSE Risk Intelligence operational architecture](images/operational_architecture.gif)
+
 ## 🔄 Conceptual Operational Risk Model
 
 ```mermaid
@@ -313,6 +317,7 @@ Repository organization may evolve as Version 1 is prepared for deployment, but 
 - `HOW_IT_WORKS.md` — Non-technical walkthrough of how operational information moves through the system.
 - `Case_Study.md` — Project problem framing, architecture decisions, lessons learned, and decision-support use case.
 - `/docs` — Public technical documentation, architecture diagrams, workflow explanations, and database design notes.
+- `/images` — Architecture diagrams, animated workflow visuals, screenshots, and other documentation assets.
 
 The database folder contains the canonical Version 1 baseline and subsequent migrations.
 
