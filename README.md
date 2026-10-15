@@ -335,6 +335,7 @@ See:
 - [**HOW_IT_WORKS.md**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/HOW_IT_WORKS.md) — non-technical operational walkthrough
 - [**Database Operations Manual**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/docs/Database_Operations_Manual.md) — database and workflow rules
 - [**Database Canonical-Baseline Documentation**](docs/Database_Baseline_and_Migrations.md) — rebuild order and migration policy
+- [Technical Case Study](Case_Study.md) — problem framing, architecture decisions, implementation approach, limitations, and lessons learned.
 
 ---
 
