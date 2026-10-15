@@ -1,68 +1,313 @@
 # 🦺 HSE Risk Intelligence — Project Portfolio
 
-## 🌍 Real-World Value
+## Operational HSE Decision-Support Platform
 
-The **HSE Risk Intelligence** system provides a comprehensive safety, hazard, and operational monitoring platform for industrial worksites.  
-It integrates **task planning (task definitions/templates), and real-world execution (task executions), workforce structures (organizations and teams), attendance, hazards, incidents, observations, toolbox meetings, corrective actions, and automated risk intelligence layers**:
+**HSE Risk Intelligence** is a PostgreSQL + Streamlit decision-support platform for structuring operational HSE information into a connected, traceable workflow.
 
-- Real-time operational oversight and structured daily KPI reporting  
-- Task, phase, and zone-level hazard trend analysis  
-- Incident root-cause analysis and intervention lifecycle tracking  
-- Planning-versus-execution validation through toolbox-to-task linkage  
-- Evidence-based decision-making for site management and executives  
-- Scalable architecture supporting multi-site and longitudinal safety insights  
-- Contractor and subcontractor performance tracking through organization and team structures  
-- **Event-driven automation for hazard detection, corrective actions, and workflow validation**  
-- **Bowtie-based hazard modeling with barrier integrity evaluation**  
-- **Dynamic risk scoring combining conditions, controls, and barrier effectiveness**  
-- **Scenario simulation engine for predictive risk analysis (what-if modelling)**  
-- Future AI-assisted querying and predictive safety analytics  
+The system brings together:
 
-This project demonstrates **senior-level consultancy competencies** in database design, HSE risk management, and operational analytics, **aligned with ISO 45001:2018 management standards, NEBOSH methodology, and barrier-based risk practices used by major oil & gas operators**.
+- site, section, zone, organization, team, and personnel context
+- work planning and task execution
+- PTW, JSA, Method Statement, and Planned Work Package records
+- toolbox meetings and workforce participation
+- weather and operational conditions
+- observations, hazards, and controls
+- incidents / events and incident controls
+- corrective actions and verification
+- emergency preparedness drills
+- daily confirmation and management reporting
+- data structures designed for future KPI and longitudinal analysis 
+
+The objective is not to automate safety decisions.
+
+The system is designed to help people **capture operational evidence consistently, preserve relationships between records, identify what requires attention, and support defensible management review.**
 
 ---
 
-## 🛠️ Core Functional Pillars
+## 🌍 Why I Built It
 
-The system applies globally recognized methodologies for integrated safety management:
+Operational HSE information is often fragmented across:
 
-- **Hazard Identification & Risk Assessment (HIRA):** Proactive assessment models based on NEBOSH risk profiling and ISO 45001 workflows.
+- daily reports
+- spreadsheets
+- PTWs and JSAs
+- toolbox records
+- hazard registers
+- incident forms
+- corrective-action trackers
+- personnel records
 
-- **Bowtie Risk Modeling:** Structured hazard analysis mapping threats, barriers, and consequences.
+HSE Risk Intelligence explores how these records can be represented as a connected operational data system rather than independent documents.
 
-- **Barrier Integrity & Effectiveness Evaluation:** Quantitative scoring of controls aligned with barrier-based safety philosophy.
-
-- **Administrative Control Governance:** Structured management of Permit to Work (PTW) and Job Safety Analysis (JSA) sequences.
-
-- **Risk Quantization:** Calibrated scoring using **conditions + controls + barrier integrity adjustments**.
-
-- **Event-Driven Automation:** Trigger-based system for hazard creation, corrective actions, and workflow enforcement.
-
-- **Scenario Simulation Engine:** Enables proactive “what-if” analysis for barrier failure or control degradation.
-
-- **Audit-Ready Traceability:** Ensuring all safety observations, overrides, and automation actions are timestamped and reproducible.
+The project is informed by real HSE field-reporting experience while using generalized, anonymized, and portfolio-safe data structures.
 
 ---
 
 ## 🔐 Data Ethics, Governance & Portfolio Use
 
-This project is built from field-derived observations and reporting authored by the developer during routine site oversight on a large-scale construction project involving the development of aviation fuel infrastructure near a Caribbean-based international airport environment.
+The database design is informed by field-derived HSE observations, daily safety reporting, PPE/control verification, work-planning records, and operational oversight.
 
-To ensure the highest standards of Professional Ethics and Information Security, the following governance protocols are applied:
+It is not a copy of a proprietary corporate database or internal software system.
 
-- **Data Minimization & Pseudonymization:** All Personally Identifiable Information (PII) within the `PERSON` and `CERTIFICATION` tables is pseudonymized.
+For portfolio use:
 
-- **Contextual Abstraction:** Site and company identifiers in the `SITE` and `ZONE` tables are generalized to protect corporate anonymity.
+- identifying worker information is anonymized or generalized
+- organizations and site details are abstracted where appropriate
+- PTW, JSA, and related identifiers are generalized
+- proprietary forms and templates are not reproduced
+- risk classifications and lookup structures are implemented independently
 
-- **Technical Anonymization:** Numerical sequences for PTW, JSA, and certifications are abstracted to prevent reconstruction of specific historical site activities.
+The aim is to preserve realistic operational relationships without exposing confidential project information.
 
-- **IP Protection:** Proprietary risk matrices and severity scales are translated into generalized lookup tables.
+---
 
-- **Integrity of Operational Patterns:** The dataset preserves real-world hazard-control relationships for advanced analytics and future AI-assisted querying.
+## 🧭 Version 1 — Current Scope
+
+1 · Operational Foundation
+
+The platform establishes context through:
+
+- Sites
+- Site Sections
+- Zones
+- Zone Models and lineage
+- Phases
+- Organizations
+- Teams
+- Personnel
+- Personnel / organization history
+- Application users and site access
+
+2 · Planning & Field Operations
+
+Version 1 supports:
+
+- Planned Work Packages
+- planned tasks
+- Permit to Work records
+- Job Safety Analyses
+- Method Statements
+- toolbox meetings
+- attendance / personnel presence
+- task execution
+- PPE and control verification
+- weather-assisted operational context
+
+3 · Risk Detection & Controls
+
+Operational records can capture and connect:
+
+- observations
+- hazards
+- severity and probability classifications
+- hazard controls
+- control status
+- control effectiveness
+- hazard-library references
+- planned versus newly identified hazards
+
+Observations and hazards may be linked to task execution where appropriate, while the model also supports records that are not tied to a specific task.
+
+4 · Incident / Event Management
+
+- Incident architecture includes:
+- incident / event records
+- incident type and subtype
+- actual and potential severity
+- people involve
+- assets involved
+- external notifications
+- attachments / external file references
+- incident controls
+- incident ↔ task relationships
+- incident ↔ observation relationships
+- incident link requests
+- lifecycle / status history
+- follow-up and investigation indicators
+
+5 · Corrective Action & Assurance
+
+Corrective actions can originate from operational sources including:
+
+- observations
+- hazards
+- hazard controls
+- incidents
+- PTW / JSA context
+- inspections / audits
+- management concerns
+
+The lifecycle supports assignment, due dates, status progression, implementation, verification, and controlled closure.
+
+6 · Emergency Preparedness
+
+Emergency Drill functionality supports:
+
+- multiple drill categories
+- participants
+- operational location
+- observations and lessons learned
+- improvement areas
+- follow-up drills
+- links to tasks
+- links to incidents
+- links to observations
+- links to hazards
+- links to corrective actions
+- Completed / Details Pending / Void lifecycle states
+
+7 · Daily Confirmation & Reporting
+
+Daily operations can be finalized through a controlled confirmation process.
+
+Confirmed records are associated with a daily confirmation batch and an immutable management-report snapshot so that the final confirmed report can be retrieved without reconstructing it from subsequently changing operational records.
+
+---
+
+## 🔄 Conceptual Operational Risk Model
+
+```mermaid
+flowchart TB
+
+    subgraph F1["1 · Foundation"]
+        SITE["Site<br/>Section<br/>Zone"]
+        PEOPLE["People<br/>Teams<br/>Organizations"]
+    end
+
+    subgraph F2["2 · Planning & Field Operations"]
+        PLAN["PWP · PTW<br/>JSA · Method Statements"]
+        TOOLBOX["Toolbox<br/>& Preparedness"]
+        TASK["Task<br/>Execution"]
+        WEATHER["Weather<br/>& Conditions"]
+
+        PLAN --> TASK
+        TOOLBOX --> TASK
+        WEATHER --> TASK
+    end
+
+    subgraph F3["3 · Risk Detection"]
+        OBS["Observation"]
+        HAZ["Hazard"]
+        HCTRL["Hazard<br/>Controls"]
+
+        TASK --> OBS
+        TASK --> HAZ
+        OBS --> HAZ
+        HAZ --> HCTRL
+    end
+
+    subgraph F4["4 · Incident Response"]
+        INC["Incident<br/>or Event"]
+        ICTRL["Incident<br/>Controls"]
+
+        TASK --> INC
+        OBS --> INC
+        INC --> ICTRL
+    end
+
+    subgraph F5["5 · Follow-Up & Assurance"]
+        CA["Corrective<br/>Action"]
+        VERIFY["Verification<br/>& Closure"]
+
+        OBS --> CA
+        HAZ --> CA
+        HCTRL --> CA
+        INC --> CA
+
+        CA --> VERIFY
+        HCTRL --> VERIFY
+        ICTRL --> VERIFY
+    end
+
+    subgraph F6["6 · Confirmation & Management"]
+        DRILL["Emergency<br/>Drills"]
+        CONFIRM["Daily Close<br/>& Confirmation"]
+        REPORT["Management<br/>Report"]
+        OUTPUT["Analytics-Ready<br/>Outputs"]
+
+        VERIFY --> CONFIRM
+        DRILL --> CONFIRM
+        CONFIRM --> REPORT
+        REPORT --> OUTPUT
+    end
+
+    SITE --> PLAN
+    SITE --> TOOLBOX
+    PEOPLE --> TASK
+    SITE --> DRILL
+```
+
+This is a conceptual model. The physical PostgreSQL implementation contains additional relationship, lifecycle, audit, lookup, approval, and history tables.
+
+---
+
+## 🧠 What “Risk Intelligence” Means Here
+
+In Version 1, risk intelligence means connecting operational evidence so that a reviewer can understand:
+
+- what work occurred
+- where it occurred
+- who was involved
+- what conditions were present
+- what was observed
+- what hazards were identified
+- what controls were implemented
+- whether controls were reviewed
+- whether an incident occurred
+- what corrective follow-up remains
+- what emergency-preparedness activities occurred
+- what was ultimately confirmed in the daily management record
+
+The platform remains human-guided. It supports decisions rather than replacing professional judgement.
+
+---
+
+## 🗄️ Database Architecture
+
+The Version 1 database uses PostgreSQL schemas to separate responsibilities:
+
+- lookup — controlled classifications and reference values
+- core — sites, personnel, organizations, zones, hazard/control reference structures
+- operations — operational workflows and transactional records
+- security — users, roles, access, and approval infrastructure
+- analytics — analytics-ready structures
+
+The Layer 3 / Version 1 canonical database baseline has been rebuilt successfully from an empty PostgreSQL database and is maintained separately from historical development migrations.
+
+Future schema changes are intended to be introduced as forward migrations rather than rewriting the frozen Version 1 baseline.
+
+---
+
+## 🧱 Technology
+
+Application
+
+- Python
+- Streamlit
+
+Database
+
+- PostgreSQL
+- psycopg2
+
+Reporting
+
+- structured daily management reports
+- Word document generation
+
+database-preserved confirmed report snapshots
+
+Data / Analysis
+
+- SQL
+- pandas
+- future KPI and longitudinal analytics
 
 ---
 
 ## 📂 Repository Structure
+
+Repository organization may evolve as Version 1 is prepared for deployment, but the main areas include:
 
 - `/sql` — Schema creation, indexes, constraints  
 - `/data` — Raw datasets and prefilled lookup tables  
@@ -72,229 +317,56 @@ To ensure the highest standards of Professional Ethics and Information Security,
 - `/automation` — Event-driven automation engine (triggers, validators, lifecycle, notifications)  
 - `/modules` — Risk engine, simulation engine, reporting engine, indicator engine  
 - `/notebooks` — Data exploration, validation scripts, simulations  
-- `README.md` — Project overview  
+- `README.md` — Project overview
+
+The database folder contains the canonical Version 1 baseline and subsequent migrations.
+
+Secrets and production credentials are never committed to GitHub.
 
 ---
 
-## Conceptual Risk Intelligence Model (Enterprise ERD)
+## 📖 Documentation
 
-**high-level operational risk intelligence ERD diagram**
+See:
 
-```mermaid
-erDiagram
-
-    SITE ||--o{ ZONE : contains
-    ZONE ||--o{ PHASE : includes
-
-    PHASE ||--o{ TASK : defines
-    TASK ||--o{ TASK_EXECUTION : instantiated_as
-
-    TASK_EXECUTION }o--|| TEAM : executed_by
-    TEAM }o--|| ORGANIZATION : owned_by
-
-    PERSON }o--|| ORGANIZATION : employed_by
-    PERSON }o--o{ TEAM : assigned_to
-
-    PERSON ||--o{ ATTENDANCE : logs
-    ATTENDANCE }o--o{ TASK_EXECUTION : supports
-
-    TASK_EXECUTION ||--o{ TASK_CONDITIONS : has_conditions
-    TASK_CONDITIONS }o--|| TASK_CONDITION_TYPES : classified_by
-
-    TASK_EXECUTION ||--o{ PTW : requires
-    TASK_EXECUTION ||--o{ JSA : requires
-
-    TASK_EXECUTION ||--o{ OBSERVATION : may_link_to
-    TASK_EXECUTION ||--o{ HAZARD : exposes
-    TASK_EXECUTION ||--o{ INCIDENT : leads_to
-
-    OBSERVATION ||--o{ HAZARD : may_generate
-    OBSERVATION ||--o{ CORRECTIVE_ACTION : may_create
-
-    HAZARD ||--o{ HAZARD_CONTROL : mitigated_by
-    HAZARD ||--o{ BOWTIE_THREAT : has_threats
-    HAZARD ||--o{ BOWTIE_CONSEQUENCE : has_consequences
-
-    HAZARD_CONTROL }o--|| CONTROL : uses
-    HAZARD_CONTROL }o--|| CONTROL_EFFECTIVENESS_SCALE : evaluated_by
-
-    HAZARD }o--|| SEVERITY_LEVELS : rated_by
-    HAZARD }o--|| PROBABILITY_LEVELS : rated_by
-
-    INCIDENT ||--o{ INTERVENTION : triggers
-    INTERVENTION ||--o{ CORRECTIVE_ACTION : may_result_in
-
-    TOOLBOX_MEETING ||--o{ TOOLBOX_MEETING_TASK : links
-
-    WEATHER ||--o{ TASK_EXECUTION : influences
-
-    TASK_EXECUTION ||--o{ DAILY_SUBMISSION : finalized_by
-
-    EMERGENCY_DRILLS ||--o{ EMERGENCY_DRILL_PARTICIPANTS : includes
-    PERSON ||--o{ EMERGENCY_DRILL_PARTICIPANTS : participates_in
-
-    DAILY_SUBMISSION ||--o{ ANALYTICS_DAILY_KPIS : generates
-```
-
-
-## Conceptual Flow (Enterprise Enhanced)
-
-- Tasks define planned work, while **task executions represent real-world operations**.
-
-- Each task execution is enriched with **environmental and operational conditions** (e.g., working at height, confined space), captured through `task_conditions`.
-
-- These conditions serve as primary inputs into the **Risk Engine**, influencing hazard identification and base risk scoring.
-
-- Hazards are generated from:
-  - Task execution exposure  
-  - Observations  
-  - Toolbox discussions  
-  - Automated condition-based triggers  
-
-- Hazards are structured using **Bowtie methodology**:
-  - Threats (causes)
-  - Barriers (controls)
-  - Consequences (outcomes)
-
-- Controls are evaluated using **effectiveness scales**, forming the basis of **barrier integrity scoring**.
-
-- Risk is dynamically calculated using:
-  - Conditions (task_conditions)
-  - Control effectiveness
-  - Barrier integrity penalties
-
-- A **Simulation Engine** allows predictive analysis by modifying barrier effectiveness and simulating risk escalation.
-
-- An **Automation Layer**:
-  - Detects high-risk conditions
-  - Creates hazards and corrective actions automatically
-  - Enforces workflow validations
-
-- **Emergency Drills** provide periodic validation of preparedness and response capability.
-
-- **Daily Submission** acts as a control gate:
-  - Validates completeness
-  - Locks records
-  - Triggers KPI persistence
-
-- **Indicator Engine** aggregates:
-  - Leading indicators (PPE, hazards)
-  - Lagging indicators (incidents, actions)
-  - Barrier indicators
-  - Predictive indicators
-
-- These are stored in `analytics.daily_kpis` and used by the **Management Dashboard**.
-
-- The system operates as a **closed-loop intelligence cycle**:
-  Data Entry → Risk Evaluation → Automation → Validation → Reporting → Analytics → Decision Support
-
-👉 [How It Works (Simple Overview)](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/HOW_IT_WORKS.md)
+- HOW_IT_WORKS.md — non-technical operational walkthrough
+- [**Database Operations Manual**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/docs/Database_Operations_Manual.md) — database and workflow rules
+- database canonical-baseline documentation — rebuild order and migration policy
 
 ---
 
----
+## 🔭 Planned Version 2 Exploration
 
-## 📊 Operational Modules & Data Flow
+Version 2 is intended to explore how accumulated operational data can support more advanced risk-analysis capabilities.
 
-### Status Legend
+Potential directions include:
 
-| Status | Meaning |
-|--------|---------|
-| 🟢 | Fully Implemented |
-| 🟡 | Refinement / UI in Progress |
-| 🔵 | Future Enhancement |
+- bow-tie-style hazard visualization
+- barrier / control-health analysis
+- scenario and preparedness simulation
+- evidence-linked field photographs and documents using external object storage
+- richer management dashboards
+- longitudinal and cross-site risk patterns
+- natural-language querying
+- decision-support experimentation using historical operational evidence
 
-| Module | Stage | Function | Status | Dashboard / Output |
-|--------|-------|---------|--------|------------------|
-| **Daily Safety & Attendance** | `PPE & Presence` | Logs worker presence, PPE compliance, and safety observations | 🟢 | Daily KPI Dashboard |
-| **Task & Hazard Management** | `Execution & Risk` | Track tasks, hazards, controls, and task conditions; link to dynamic risk scoring | 🟢 | KPI Trends, Risk Matrix |
-| **Incident & Intervention Tracking** | `Incident → Intervention → Corrective Action` | Capture incidents, trigger interventions, monitor action lifecycle | 🟢 | Corrective Action Reports |
-| **Observational Intelligence** | `Observations → Hazards → Zones` | Track zones where hazards are most observed and convert observations into risk data | 🟢 | KPI Observation Hotspots |
-| **Toolbox Meetings** | `Safety Topics & Engagement` | Daily toolbox topics, attendance, and discussion logs linked to hazards and tasks | 🟢 | Toolbox Dashboard |
-| **Emergency Preparedness** | `Emergency Drills & Participation` | Capture emergency drill execution, participants, and lessons learned for compliance | 🟢 | Compliance Reports |
-| **Risk Intelligence Engine** | `Conditions + Controls + Barriers` | Multi-factor risk scoring combining task conditions, control effectiveness, and barrier integrity | 🟢 | Risk Levels, Decision Support |
-| **Bowtie & Barrier Modeling** | `Threat–Barrier–Consequence` | Structured hazard modeling with barrier integrity scoring | 🟢 | Barrier Analysis |
-| **Simulation Engine** | `What-if Risk Scenarios` | Predictive modeling of risk escalation under changing control/barrier conditions | 🟢 | Predictive Risk Insights |
-| **Automation Engine** | `Event-Driven Actions` | Trigger-based hazard creation, corrective actions, and workflow validation | 🟢 | Auto Actions / Alerts |
-| **Indicator Engine** | `Leading / Lagging / Predictive KPIs` | Aggregates operational data into structured KPIs and persists daily metrics | 🟢 | KPI Tables (`analytics.daily_kpis`) |
-| **Multi-Site & Longitudinal Insights** | `Cross-Site & Phase Analysis` | Compare safety performance across sites and phases | 🔵 | Cross-Site KPI Dashboards |
-| **AI-Assisted Query Interface** | `Interactive Questioning & Reporting` | Future functionality: natural language queries mapped to SQL reporting | 🔵 | Ad-hoc Reports, Automated Queries |
-
-> **Note:** For MVP with one site, the app focuses on **daily operations, risk intelligence, and KPI generation**, with management dashboards consuming persisted analytics data.
+These capabilities are planned research and development directions and are not represented as implemented Version 1 functionality.
 
 ---
 
-## 📈 Executive Dashboard KPIs (MVP)
+## 🎯 Project Objective
 
-| KPI | Source Table | Notes |
-|-----|--------------|------|
-| High-risk tasks today | TASK_EXECUTION + HAZARD + Risk Engine | Includes barrier-adjusted risk scoring |
-| Attendance | ATTENDANCE | Percent present vs expected |
-| PPE Compliance | PPE_CHECKS | Leading indicator of safety compliance |
-| Hazard Identification Rate | HAZARD | Leading indicator of proactive risk detection |
-| Open Corrective Actions | CORRECTIVE_ACTION | Lagging indicator of unresolved risk |
-| Observation Hotspots | OBSERVATION, OBSERVATION_ZONE | Zones with repeated safety issues |
-| Toolbox Engagement | TOOLBOX_MEETING | Participation vs expected attendance |
-| Weather Exposure | WEATHER | Environmental risk context |
-| Contractor Risk Exposure | INCIDENT + ORGANIZATION | Identify high-risk contractors |
-| Team Performance | TASK_EXECUTION + TEAM | Compare team-level safety performance |
-| Weak Barriers | HAZARD_CONTROL | Barrier integrity indicator |
-| Simulation Risk Escalation | Simulation Engine | Predictive indicator of risk increase |
+The project demonstrates how operational HSE records can be transformed from disconnected documentation into a structured, auditable, relational decision-support system.
 
-> Future KPI tabs will expand to trend analysis, predictive modeling, and cross-site benchmarking.
+Its focus is:
+
+**Operational usefulness → traceability → human-guided risk management → management-ready information.**
 
 ---
 
-## 🛠 Tools & Techniques Used
+🧠 In One Sentence
 
-### **Backend & Database**
-- PostgreSQL (future-proofed for multi-site expansion)  
-- Normalized tables with primary & foreign key relationships  
-- Preloaded lookup dictionaries for standardization (e.g., PPE types, task categories, risk matrices, condition thresholds)  
-
-### **Analytics & Risk Engineering**
-- Risk scoring integrates **task conditions, control effectiveness, and barrier integrity**  
-- Bowtie methodology for structured hazard modeling  
-- Barrier scoring aligned with industry safety practices  
-- Scenario simulation for predictive risk analysis  
-- Daily KPI aggregation and persistence (`analytics.daily_kpis`)  
-- Historical trend analysis (incidents, hazards, corrective actions, barrier degradation)  
-
-### **Application Layer (Streamlit)**
-- Guided data entry workflows (tasks, hazards, PPE, observations)  
-- Real-time validation and automation triggers  
-- Integrated reporting (CSV, PDF-ready structure)  
-
-> **Certifications Alignment:** Risk scoring, hazard identification, PTW/JSA governance, automation logic, and barrier modeling align with **NEBOSH General Certificate, ISO 45001:2018, and barrier-based risk management practices used in major oil & gas operations**.
-
----
-
-## 📘 Documentation & Manuals
-
-- [**Database Operations Manual**](https://github.com/Euchie23/HSEQ_Risk_Intel/blob/main/docs/Database_Operations_Manual.md) <br> 
-  Includes:  
-  - Lookup tables and dictionaries  
-  - Transactional table structures  
-  - ERD and table relationships  
-  - Data entry rules (daily, weekly, monthly, as-needed)  
-
-- **Reports Folder** → `/reports/`  
-  Includes:  
-  - Generated KPI dashboards  
-  - Daily / weekly summary PDFs  
-  - Compliance and safety reports  
-
----
-
-## 🎯 Key Objectives
-
-- Maintain structured real-time safety monitoring aligned with **NEBOSH & ISO 45001 principles**  
-- Enable proactive and predictive risk identification using conditions, controls, and barrier analysis  
-- Integrate automation for hazard detection and corrective action workflows  
-- Support decision-making through simulation and KPI analytics  
-- Preserve quantified risk engine and barrier scoring logic  
-- Provide a scalable foundation for multi-site and longitudinal analysis  
-- Establish groundwork for AI-assisted querying and predictive risk modeling  
+HSE Risk Intelligence is a human-guided operational decision-support platform that connects work, observations, hazards, controls, incidents, corrective actions, preparedness, and confirmed reporting into a traceable PostgreSQL data model.
 
 ---
 
