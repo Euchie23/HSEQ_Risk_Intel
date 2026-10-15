@@ -309,19 +309,16 @@ Data / Analysis
 
 Repository organization may evolve as Version 1 is prepared for deployment, but the main areas include:
 
-- `/sql` — Schema creation, indexes, constraints  
-- `/data` — Raw datasets and prefilled lookup tables  
-- `/docs` — Documentation (manuals, ERDs, SOPs)  
-- `/reports` — Generated dashboards, KPI summaries, compliance reports, and PDF outputs  
-- `/app` — Streamlit guided data entry application  
-- `/automation` — Event-driven automation engine (triggers, validators, lifecycle, notifications)  
-- `/modules` — Risk engine, simulation engine, reporting engine, indicator engine  
-- `/notebooks` — Data exploration, validation scripts, simulations  
-- `README.md` — Project overview
+- `README.md` — Project overview, current Version 1 scope, architecture, and roadmap.
+- `HOW_IT_WORKS.md` — Non-technical walkthrough of how operational information moves through the system.
+- `Case_Study.md` — Project problem framing, architecture decisions, lessons learned, and decision-support use case.
+- `/docs` — Public technical documentation, architecture diagrams, workflow explanations, and database design notes.
 
 The database folder contains the canonical Version 1 baseline and subsequent migrations.
 
 Secrets and production credentials are never committed to GitHub.
+
+> **Note:** Core application code, database build scripts, migration files, and internal implementation modules are maintained privately. The public repository focuses on architecture, workflow design, documentation, selected outputs, and portfolio-safe technical explanations.
 
 ---
 
