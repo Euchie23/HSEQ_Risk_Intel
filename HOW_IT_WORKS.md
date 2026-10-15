@@ -1,251 +1,343 @@
-# 🔄 How the HSE Risk Intelligence System Works  
-*(Conceptual Overview – Non-Technical)*
-
----
-
-## ⚠️ Important Note
-
-This document describes the **current conceptual design** of how the system is expected to work.
-
-As the project evolves through development, testing, and real-world use, certain components may be refined, simplified, or expanded.
+# 🔄 How HSE Risk Intelligence Works  
+*(Conceptual Overview – Version 1)*
 
 ---
 
 ## 🌍 Overview
 
-The **HSE Risk Intelligence System** transforms everyday site safety activities into **structured, connected, and actionable intelligence**.
+HSE Risk Intelligence turns everyday operational HSE records into a connected, traceable information system.
 
-Instead of relying on spreadsheets and disconnected reports, the system creates **one continuous workflow from data entry → risk evaluation → decision support → reporting → management oversight**.
-
-👉 In simple terms:  
-It helps teams **capture safety data correctly**, **connect it automatically**, and **use it to make informed decisions in real time**.
-
-
----
-
-## 🧩 1. Guided Daily Data Entry
-
-Each day, users enter site data through a structured interface:
-
-- Personnel on site  
-- Task being performed (task execution)  
-- Location (zone & phase)  
-- Working conditions (e.g., at height, confined space)  
-- PPE compliance  
-
-👉 This ensures consistency and removes missing or incorrect data.
-
----
-
-## 🧰 2. Pre-Task Planning (Toolbox Meetings)
-
-Before work begins, teams typically conduct a **toolbox meeting**.
-
-This is where:
-
-- The task is discussed  
-- Site conditions are reviewed  
-- Hazards are identified in real time  
-- Controls and precautions are agreed upon  
-
-Unlike formal documents such as PTW (Permit to Work) and JSA (Job Safety Analysis), toolbox meetings are **dynamic and based on actual site conditions at that moment**.
-
-👉 This makes toolbox meetings the **operational planning layer** of the system.
-
-The hazards and controls identified here are then captured and linked to the task execution, forming the **foundation for risk evaluation**.
+Instead of treating attendance, planning documents, toolbox meetings, observations, hazards, incidents, controls, and corrective actions as separate records, the platform preserves the relationships between them.
 
 👉 In simple terms:  
-**Toolbox meetings ensure that real-world risks are identified before work starts — not just what was planned on paper.**
+> It helps users record what happened, connect related evidence, identify what still needs attention, and produce a defensible management record. >
+
+The system is human-guided.
+
+It supports professional judgement rather than attempting to replace it.
 
 ---
 
-## 🔗 3. Automatic Data Connection
+## 🧱 1. Establish the Operational Context
 
-All inputs are automatically linked:
+Every workflow starts with context such as:
 
-- Workers → Teams → Organizations  
-- Tasks → Locations → Conditions  
-- Hazards → Actual work being performed  
-- Observations → Tasks or general site conditions  
-
-👉 This creates a **single source of truth** for operations.
-
----
-
-## ⚙️ 4. Automatic Risk Detection
-
-### Condition-Based Hazard Identification
-The system detects hazards automatically based on conditions:
-
-- Example: Working at height → Fall hazard  
-
-### Risk Engine
-Risk is calculated using:
-
-- Conditions  
-- Control effectiveness  
-- PPE compliance  
-- Barrier integrity  
-
-👉 Produces a dynamic **Low / Medium / High risk level**
+- site
+- section
+- zone
+- work date
+- personnel
+- organizations
+- teams
+  
+👉 This provides the foundation for understanding where work occurred and who was involved.
 
 ---
 
-## 🧠 5. Bowtie Risk Modeling
+## 📋 2. Plan the Work
 
-Each hazard is structured using:
+Before execution, work may be supported by:
 
-- Threats (causes)  
-- Barriers (controls)  
-- Consequences (outcomes)  
+- Planned Work Packages
+- PTWs
+- JSAs
+- Method Statements
+- planned task information
 
-👉 This mirrors industry-standard Bowtie methodology.
+These records describe intended work and its planning context.
 
----
-
-## 🛡️ 6. Barrier Integrity Evaluation
-
-Barriers are scored based on:
-
-- Effectiveness  
-- Reliability  
-- Condition  
-
-👉 Weak barriers increase risk and trigger attention.
+The system keeps planned work separate from actual execution.
 
 ---
 
-## ⚡ 7. Event-Driven Automation
+## 👷 3. Record the People and Field Session
 
-The system reacts automatically to events:
+Daily Operations establishes:
 
-- Task saved  
-- Risk calculated  
-- Observation recorded  
-- Day submitted  
+- work date
+- field session / shift
+- personnel present
+- team and organizational context
 
-It can:
-
-- Create hazards  
-- Generate corrective actions  
-- Validate workflow completeness  
-- Send alerts  
+This allows later records to be interpreted against the workforce and operating period that actually existed.
 
 ---
 
-## 📌 8. Corrective Actions & Tracking
+## 🗣️ 4. Capture Toolbox & Preparedness Activity
 
-Issues trigger actions:
+Toolbox meetings provide field-level discussion before or during operations.
 
-- Assigned to responsible persons  
-- Tracked (Open / In Progress / Closed)  
+They may capture:
 
-👉 Ensures accountability and resolution.
+- topics discussed
+- participation
+- work being addressed
+- preparedness information
+- hazards and concerns raised
 
----
-
-## 📊 9. Decision Support
-
-The system evaluates:
-
-- Risk levels  
-- Hazards  
-- Controls  
-- Actions  
-
-👉 Produces summaries like:
-
-- “Low Risk Operations”  
-- “High Risk — Supervision Required”  
+Toolbox information complements formal planning documentation rather than replacing it.
 
 ---
 
-## 🔮 10. Scenario Simulation (What-If)
+## 🏗️ 5. Record Actual Task Execution
 
-Users can simulate:
+A Task Template describes a reusable type of work.
 
-- Barrier failure  
-- Control degradation  
-- Condition changes  
+A Task Execution represents an actual instance of that work.
 
-The system explains:
+The system can connect execution with:
 
-- Why risk changes  
-- What caused it  
-- What actions are needed  
+ - planning context
+ - personnel/team context
+ - location
+ - shift/session
+ - weather
+ - PPE/control verification
+ - observations
+ - hazards
+ - incidents
 
----
+This distinction is important:
 
-## 📄 11. Automated Reporting
+> Template = what kind of work it is >
 
-Reports are generated with:
-
-- Tasks  
-- Personnel  
-- Hazards  
-- Controls & barriers  
-- Actions  
-- Risk decisions  
-- Narrative summary  
-
-👉 Fully structured and audit-ready.
+> Execution = the work that actually happened >
 
 ---
 
-## 🔄 12. Submission to Management
+## 🌦️ 6. Add Operational Conditions
 
-Reports are:
+Weather and other operational conditions provide context around the work.
 
-- Marked as submitted  
-- Stored in database  
-- Made available to a separate management system  
+Weather may be assisted by external data while preserving source information and consultant confirmation.
 
-👉 Data entry and decision-making layers remain separate.
+Condition and hazard-library structures can help users interpret operational exposure, but final HSE decisions remain human-guided.
 
 ---
 
-## 🏢 Workforce Structure
+## 👁️ 7. Capture Observations
 
-The system models real-world operations:
+An Observation records something noticed during operational oversight.
 
-- Organizations (employers)  
-- Teams (execution units)  
-- Personnel (workers)  
+An observation may:
 
-👉 Enables contractor performance tracking.
+- relate to a task
+- apply generally to the site
+- identify a hazard
+- relate to an incident
+- lead to corrective action
 
----
-
-## 📈 13. Pattern Recognition
-
-Over time, the system identifies:
-
-- Repeated hazards  
-- High-risk tasks  
-- Weak controls  
-- Contractor trends  
+The system does not force every observation to belong to a task.
 
 ---
 
-## 💬 14. Future: Natural Language Queries
+## ⚠️ 8. Identify Hazards & Controls
 
-Planned feature:
+Hazards can be connected to operational evidence such as:
 
-Users can ask:
+- task execution
+- observations
+- planned work
+- newly identified execution conditions
 
-- “How many workers today?”  
-- “What are the highest risks?”  
+Controls can then be recorded against the hazard.
 
-👉 System responds automatically.
+Control records capture both implementation and effectiveness context so that users can distinguish between:
+
+- a control that exists
+- a control that has been implemented
+- a control that has actually been reviewed for effectiveness
+
+This creates a traceable chain:
+
+**Operational Evidence → Hazard → Control**
+
+---
+
+## 🚨 9. Record Incidents / Events
+
+Incidents are captured as standalone events first.
+
+They do not have to be forced through a hazard/control chain during initial entry.
+
+Where appropriate, an incident can later be connected to:
+
+- task execution
+- observations
+- people
+- assets
+- weather
+- controls
+- external notifications
+- attachments / file references
+
+The incident lifecycle can preserve status changes and management follow-up.
+
+---
+
+## 🛡️ 10. Record Incident Controls
+
+Incident controls describe measures applied specifically in response to or management of an incident.
+
+They are separate from longer-term hazard controls.
+
+This distinction helps preserve what was done immediately versus what becomes a longer-term operational control.
+
+---
+
+## ✅ 11. Raise & Track Corrective Actions
+
+Corrective actions can originate from several operational sources, including:
+
+- Observation
+- Hazard
+- Hazard Control
+- Incident
+- PTW / JSA
+- Inspection / Audit
+- Management concern
+
+Each action can track:
+
+- what needs to be done
+- priority
+- responsible person
+- due date
+- progress
+- implementation
+- verification
+- closure
+
+Completion is not automatically equivalent to verified closure.
+
+The system preserves verification as a separate assurance step.
+
+---
+
+## 🚒 12. Capture Emergency Preparedness
+
+Emergency Drills are recorded as operational-preparedness evidence.
+
+The system can capture:
+
+- scenario / drill type
+- participants
+- coordinator
+- sequence
+- observations
+- positive findings
+- improvement areas
+- lessons learned
+- recommendations
+- follow-up
+
+Drills can also be connected to relevant:
+
+- tasks
+- incidents
+- observations
+- hazards
+- corrective actions
+
+This helps preparedness activity contribute to organizational learning.
+
+---
+
+## 🔒 13. Confirm the Daily Operational Record
+
+At the end of the workflow, Daily Operations can be formally confirmed.
+
+Confirmation locks the relevant site/date/section batch so that the final record is treated differently from an unfinished draft.
+
+This provides a clear boundary between:
+
+work still being entered
+
+and
+
+the operational record formally confirmed for that day
+
+---
+
+## 📄 14. Preserve the Management Report
+
+When the day is confirmed, the system preserves a final management-report snapshot.
+
+The snapshot is stored as the canonical confirmed report.
+
+That means the historical management record does not silently change simply because operational tables are edited later.
+
+The user can also download a Word version for external use.
+
+---
+
+## 📊 15. Build Analytics From Structured Evidence
+
+Because the operational information is relational and consistently classified, the database can later support analysis such as:
+
+- repeated hazards
+- corrective-action ageing
+- recurring observations
+- incident patterns
+- control-effectiveness patterns
+- emergency-preparedness activity
+- organization/team trends
+- zone and task exposure patterns
+
+Version 1 focuses first on collecting trustworthy operational evidence.
+
+More advanced analytics belong on top of that foundation.
+
+---
+
+## 🧠 Why Call It “Risk Intelligence”?
+
+The term does not mean that the application automatically predicts every risk.
+
+It means operational records are connected and contextualized so they can answer more useful questions.
+
+Instead of only knowing:
+
+> “An incident occurred.” >
+
+the data model can help establish:
+
+> What work was underway?
+> Where did it happen?
+> What was observed beforehand?
+> Which controls existed?
+> What follow-up was required?
+> Was corrective action verified?
+> What did management ultimately confirm? 
+
+That connected context is the intelligence layer.
+
+---
+
+## 🔭 Planned Version 2
+
+Once Version 1 is deployed and producing reliable operational data, future development may explore:
+
+- bow-tie visualization
+- barrier/control-health models
+- scenario simulation
+- preparedness simulation
+- evidence-linked field photographs
+- richer management dashboards
+- longitudinal risk-pattern analysis
+- natural-language querying
+- assisted analytical interpretation
+
+These are future experiments rather than current Version 1 capabilities.
 
 ---
 
 ## 🎯 Key Outcome
 
-👉 Shift from **reactive safety** to **proactive risk management**.
+The goal is to move from disconnected safety records toward:
 
----
+**Traceable operational evidence → structured follow-up → verified action → management-ready information**
 
 ## 🧠 In One Sentence
 
-**A connected safety intelligence system that captures data, evaluates risk, automates decisions, and supports proactive management.**
+HSE Risk Intelligence connects operational HSE evidence into a structured, human-guided decision-support workflow from planning and field execution through risk control, incident follow-up, assurance, and confirmed reporting.
