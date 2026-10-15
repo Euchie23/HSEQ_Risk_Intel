@@ -303,11 +303,17 @@ Instead of only knowing:
 the data model can help establish:
 
 > What work was underway?
+> 
 > Where did it happen?
+> 
 > What was observed beforehand?
+> 
 > Which controls existed?
+> 
 > What follow-up was required?
+> 
 > Was corrective action verified?
+> 
 > What did management ultimately confirm? 
 
 That connected context is the intelligence layer.
