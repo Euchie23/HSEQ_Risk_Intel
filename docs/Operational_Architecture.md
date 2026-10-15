@@ -1,3 +1,9 @@
+## 🎞️ How the Operational Workflow Connects
+
+![HSE Risk Intelligence operational architecture](../images/operational_architecture.gif)
+
+---
+
 ## 🔄 Conceptual Operational Risk Model
 
 ```mermaid
