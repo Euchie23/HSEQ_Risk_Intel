@@ -1,155 +1,416 @@
-# 🦺 HSE Risk Intelligence — Operational Risk & Safety Decision Support System
+# 🦺 HSE Risk Intelligence  
+
+## Operational HSE Decision Support System
 
 ---
 
-## 🧭 Decision Context & Problem Framing
+## 🧭 Decision Context
 
-Industrial operations generate large volumes of safety data daily—tasks, hazards, observations, incidents, and corrective actions. However, this information is often:
+Operational HSE work can generate information across many separate records:
 
-- Fragmented across spreadsheets and reports  
-- Inconsistently recorded across teams or sites  
-- Difficult to connect into a coherent view of risk  
+- daily reports
+- workforce attendance
+- toolbox meetings
+- PTWs and JSAs
+- task records
+- observations
+- hazards and controls
+- incidents
+- corrective actions
+- emergency-preparedness activities
 
-As a result, decision-makers face challenges in:
+The challenge is not simply collecting more information.
 
-- Identifying high-risk activities in real time  
-- Tracking whether controls are actually effective  
-- Ensuring corrective actions are implemented and closed  
-- Demonstrating compliance in audits  
+The challenge is preserving enough context and relationships to understand what happened, what required attention, what action followed, and what management ultimately reviewed.
 
-The **HSE Risk Intelligence system** was designed to address this gap by transforming operational safety data into a **structured, connected, and decision-ready system**.
-
-**Stakeholders:**
-- Site Managers & Supervisors  
-- HSE Officers & Compliance Teams  
-- Project Managers & Engineers  
-- Consultants & Auditors  
+HSE Risk Intelligence was developed as a personal project exploring how operational HSE information can be represented as a connected, traceable decision-support system rather than a collection of disconnected forms and spreadsheets.
 
 ---
 
-## ⚠️ Development Status
+## 🎯 Problem Framing
 
-This system is currently in the **design and database development phase**.
+A useful operational system should help answer questions such as:
 
-The core components already implemented include:
-- Relational database schema and entity relationships  
-- Risk scoring logic (severity, probability, residual risk)  
-- Workflow design linking hazards, controls, incidents, and corrective actions  
-- Governance structure aligned with ISO 45001 and NEBOSH principles  
+- What work was actually performed?
+- Who was present?
+- Where did the work occur?
+- What conditions were present?
+- What was observed?
+- What hazards were identified?
+- Which controls were associated with those hazards?
+- Did an incident occur?
+- What immediate controls or follow-up were required?
+- Which corrective actions remain outstanding?
+- Were completed actions verified?
+- What preparedness activities occurred?
+- What information was ultimately confirmed for management?
 
-Planned next steps include:
-- Interactive dashboards for KPI monitoring and reporting  
-- Multi-site performance comparison views  
-- AI-assisted query interface for non-technical users  
-
-👉 This reflects a **real-world system development approach**, where a robust data foundation is established before analytics and user interfaces are layered on top.
+The project therefore focuses on traceability and operational context before advanced analytics.
 
 ---
 
-## 🎯 Scenario / Use Case
+## 👥 Intended Users
 
-**Scenario:** Active construction or industrial site with multiple zones and concurrent task executions performed by different teams and contractors.
+The architecture is designed around potential use by:
 
-Daily operations include:
-- Workforce attendance and PPE compliance tracking  
-- Task execution across phases  
-- Hazard identification during work  
-- Observations of unsafe acts or conditions  
-- Incident reporting and response
+- HSE personnel
+- site supervisors
+- project managers
+- consultants
+- operational management
+- auditors or reviewers
 
+Version 1 remains human-guided: the system structures and surfaces evidence, while professional judgement remains with the user.
+
+---
+
+## 🧱 Version 1 Scope
+
+The current system includes:
+
+Operational Foundation
+
+- sites
+- sections
+- zones
+- phases
+- personnel
+- organizations
+- teams
+- application-user/site access
+
+Planning
+
+- Planned Work Packages
+- planned tasks
+- PTWs
+- JSAs
+- Method Statements
   
-**Decision Needs:**
-- Which tasks today pose the highest risk?  
-- Are controls effectively reducing risk?  
-- Where are recurring safety issues occurring?  
-- Are corrective actions being completed on time?  
+Daily Operations
 
-**How the System Supports Decisions:**
-- Links task templates → task executions → hazards → controls → incidents → corrective actions  
-- Connects workforce structure (organizations and teams) to operational risk exposure  
-- Provides structured visibility across the full risk lifecycle  
-- Enables daily KPI tracking and trend analysis   
+- work date and field sessions
+- attendance
+- toolbox activity
+- task execution
+- PPE/control verification
+- weather-assisted context
 
----
+Risk & Assurance
 
-## 📊 Key Insights & Findings
+- observations
+- hazards
+- hazard controls
+- severity/probability classification
+- control status and effectiveness
+- corrective actions
+- verification and closure
 
-- **Risk is not static:** Hazards evolve during task execution and vary across teams and contractors, requiring continuous monitoring rather than one-time assessment.   
-- **Control effectiveness is critical:** Simply having controls is insufficient—tracking whether they reduce risk provides actionable insight.  
-- **Recurring patterns emerge:** Structured data reveals repeated issues by zone, task type, or phase.  
-- **Accountability improves outcomes:** Linking corrective actions to hazards and incidents ensures issues are tracked to resolution.  
+Incident / Event Management
 
-**Decision Takeaway:**  
-Organizations can shift from **reactive incident management** to **proactive risk control and prevention**.
+- incident/event capture
+- people and assets involved
+- incident controls
+- observation/task relationships
+- status history
+- follow-up and investigation context
+- external file references
 
----
+Emergency Preparedness
 
-## 🧪 Methodology & Technical Approach
+- drill lifecycle
+- participants
+- lessons learned
+- improvement areas
+- links to operational records and corrective actions
 
-The system is built as a **relational risk intelligence architecture**.
+Confirmation & Reporting
 
-### Core Workflow
-
-1. **Data Capture**  
-   - Attendance, task executions, hazards, observations, incidents   
-
-2. **Data Linking**  
-   - Task templates define planned work  
-   - Task executions capture actual work performed  
-   - Task executions linked to hazards  
-   - Hazards linked to controls  
-   - Incidents linked to interventions and corrective actions  
-   - Workforce entities (teams and organizations) linked to task executions   
-
-3. **Risk Evaluation**  
-   - Risk scored using severity and probability  
-   - Controls evaluated using effectiveness ratings  
-   - Residual risk tracked after mitigation  
-
-4. **Governance & Tracking**  
-   - Corrective actions triggered from observations, incidents, or weak controls  
-   - Status tracking (open, in progress, closed)  
-
-5. **Outputs**  
-   - Daily KPIs  
-   - Risk trends by task execution, zone, and phase  
-   - Team and contractor-level risk exposure analysis  
-   - Audit-ready traceability    
+- controlled daily confirmation
+- locked confirmation batches
+- immutable management-report snapshots
+- Word report generation
 
 ---
 
-## ⚠️ Limitations & Considerations
+## 🔄 Operational Data Model
 
-- System is currently in **development phase** (database and logic implemented; dashboards pending)  
-- Insights depend on **data quality and consistency of reporting**  
-- Risk scoring reflects **structured models**, not real-time sensor data  
-- Multi-site benchmarking is planned but not yet fully implemented  
+At a high level, the platform follows this pattern:
 
-**Implication:**  
-Outputs should be used as **decision-support tools**, not absolute measures.
+Operational Foundation
+→ Planning & Field Work
+→ Risk Detection
+→ Incident Response
+→ Corrective Follow-Up & Assurance
+→ Confirmed Management Reporting
+
+The underlying PostgreSQL database contains additional relationship, lookup, lifecycle, audit, approval, and history tables that support this conceptual model.
 
 ---
 
-## 🧠 Consultancy Insights & Lessons Learned
+## 🏗️ Planned Work vs Actual Work
 
-- Structuring operational data is often more valuable than adding complex analytics  
-- Linking data across workflows creates **visibility that standalone reports cannot provide**  
-- Control effectiveness tracking is a key gap in many real-world safety systems  
-- Workforce structure (organizations and teams) plays a critical role in understanding risk exposure and accountability  
-- Designing for governance and auditability from the start improves long-term usability  
-- A strong data foundation enables future **predictive analytics and AI integration**  
+One important design decision was separating planned scope from actual execution.
+
+A Planned Work Package can describe reusable or longer-running intended work.
+
+A task_execution represents a specific dated instance of work actually performed.
+
+This prevents the system from treating:
+
+> “This activity was planned”
+
+as equivalent to:
+
+ > “This activity actually occurred today.”
+
+PTW, JSA, Method Statement, personnel, weather, hazards, and other operational records can then be interpreted against the appropriate planning or execution context.
+
+---
+
+## 👁️ Observations, Hazards & Controls
+
+Observations do not need to be attached artificially to a task to remain valid.
+
+Where evidence supports the relationship, an observation can connect to:
+
+**Task Execution → Observation → Hazard → Hazard Control**
+
+Hazards may also arise through other operational paths.
+
+Controls preserve information about implementation status and effectiveness rather than assuming that the existence of a control means the risk has been adequately managed.
+
+This distinction allows the database to preserve both:
+
+- control presence
+- control assurance
+
+---
+
+## 🚨 Incident Architecture
+
+Incidents are treated as standalone events at capture.
+
+The system deliberately avoids forcing every event through:
+
+**Incident → Hazard → Control**
+
+before the incident can be recorded.
+
+After capture, an incident may be related to:
+
+- task executions
+- observations
+- people
+- assets
+- weather
+- incident-specific controls
+- external notifications
+- supporting file references
+- lifecycle/status history
+
+This keeps initial event capture practical while allowing richer relationships to be established later.
+
+---
+
+## ✅ Corrective Action Lifecycle
+
+Corrective actions provide longer-term follow-up.
+
+Actions may originate from sources including:
+
+- observations
+- hazards
+- hazard controls
+- incidents
+- planning documentation
+- inspections/audits
+- management concerns
+
+The architecture separates:
+
+**Completion**
+
+from:
+
+**Verified Closure**
+
+This prevents an action from being treated as fully resolved simply because somebody marked the work complete.
+
+---
+
+## 🚒 Emergency Preparedness
+
+Emergency Drills are represented as operational records with their own lifecycle.
+
+They can capture:
+
+- drill type
+- participants
+- objectives
+- sequence of events
+- positive findings
+- improvement areas
+- lessons learned
+- recommendations
+- follow-up
+
+Drills can also be linked to tasks, incidents, observations, hazards, and corrective actions.
+
+This enables preparedness activity to contribute to broader operational learning rather than existing as an isolated compliance record.
+
+---
+
+## 🔒 Daily Confirmation & Immutable Reporting
+
+A major Version 1 design decision was separating an unfinished operational day from a formally confirmed record.
+
+At final confirmation:
+
+  1. the relevant site/date/section batch is confirmed and locked;
+
+  2. the final management report is preserved as a snapshot;
+
+  3. the canonical confirmed report can later be retrieved without reconstructing it from changing operational tables.
+
+This improves historical traceability.
+
+The Word version may be downloaded and edited externally, while the system-preserved snapshot remains unchanged.
+
+---
+
+## 🧪 Technical Approach
+
+Application
+
+- Python
+- Streamlit
+
+Database
+
+- PostgreSQL
+- relational schemas separated into lookup, core, operations, security, and analytics
+- explicit primary/foreign-key relationships
+- controlled lookup dictionaries
+- lifecycle/history tables
+- approval structures
+- reusable canonical database baseline
+
+Reporting
+
+- structured management-report generation
+- Word export
+- immutable confirmed-report snapshots
+
+Deployment Architecture
+
+- local PostgreSQL during development
+- portable canonical SQL baseline
+- cloud PostgreSQL deployment planned on Neon
+
+---
+
+## 🗄️ Reproducible Database Baseline
+
+During Version 1 stabilization, years of incremental SQL changes were consolidated into a canonical PostgreSQL baseline.
+
+The canonical build was tested against an empty PostgreSQL database.
+
+This established a reproducible starting point containing:
+
+- current schemas
+- final table structures
+- lookup/reference data
+- core baseline data
+- security baseline data
+- reusable task templates
+- constraints and indexes
+
+Historical operational test records were intentionally excluded.
+
+Future database changes are intended to be applied as forward migrations rather than continuously rewriting the frozen Version 1 baseline.
+
+---
+
+## 📊 Analytics Philosophy
+
+Version 1 prioritizes trustworthy operational capture before predictive analytics.
+
+Because records are structured relationally, future analysis can examine:
+
+- recurring hazards
+- incident patterns
+- observation trends
+- corrective-action ageing
+- control effectiveness
+- preparedness activity
+- zone/task exposure
+- organizational or team patterns
+- longitudinal and cross-site trends
+
+The project does not currently represent those possibilities as a mature predictive-risk engine.
+
+---
+
+## ⚠️ Limitations
+
+Version 1 is still a developing personal project.
+
+Important limitations include:
+
+- deployment optimization is still in progress
+- cloud deployment is not yet the production source of truth
+- advanced management dashboards remain future work
+- analytics depend on the quality and completeness of operational data
+- the platform supports, but does not replace, professional HSE judgement
+- bow-tie modeling, barrier-health analysis, simulations, and AI-assisted querying are not current Version 1 capabilities
+
+---
+
+## 💡 Key Lessons
+
+Several design lessons emerged during development:
+
+- A clear operational data model can be more valuable than prematurely adding sophisticated analytics.
+- Planned work and actual work should not be treated as the same thing.
+- Operational relationships should be captured when evidence supports them, not because the schema allows them.
+- Incident capture must remain practical even when full causal context is not yet known.
+- A control should not automatically be assumed effective.
+- Corrective-action completion and verification are different lifecycle events.
+- Historical confirmed reports should not silently change when later records change.
+- Complex architecture should be justified by an operational need rather than hypothetical future requirements.
+
+----
+
+## 🔭 Version 2 Research Direction
+
+Once Version 1 is deployed and generating stable operational data, future development may explore:
+
+- bow-tie hazard visualization
+- barrier/control-health analysis
+- control degradation indicators
+- what-if scenario simulation
+- emergency-preparedness simulation
+- evidence-linked photographs stored outside PostgreSQL
+- richer management dashboards
+- cross-site and longitudinal analytics
+- natural-language querying
+- assisted pattern detection
+
+The purpose of Version 2 would be to investigate what additional intelligence can responsibly be derived from the operational evidence already captured by Version 1.
 
 ---
 
 ## 🎯 Executive Takeaway
 
-The **HSE Risk Intelligence system** demonstrates how operational safety data can be transformed into a **connected, decision-support platform**.
+HSE Risk Intelligence demonstrates how operational HSE information can move from fragmented records toward a connected, auditable decision-support architecture.
 
-By integrating risk identification, control evaluation, and corrective action tracking into a single system, it enables organizations to:
+The value of Version 1 is not that the application makes safety decisions automatically.
 
-- Identify risks earlier  
-- Improve accountability  
-- Strengthen compliance  
-- Make more informed, data-driven safety decisions  
+Its value is that it preserves the relationships necessary for people to make better-informed decisions:
 
-👉 **From fragmented reporting to structured risk intelligence.**
+**Work → Evidence → Risk → Controls → Follow-Up → Verification → Management Record**
+
+🧠 In One Sentence
+
+HSE Risk Intelligence transforms fragmented operational HSE records into a connected, traceable PostgreSQL-backed workflow for human-guided risk management and management reporting.
