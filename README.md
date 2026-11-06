@@ -1,6 +1,7 @@
 # 🦺 HSE Risk Intelligence — Project Portfolio
 
-## Operational HSE Decision-Support Platform
+## Guided HSE Data Entry & Reporting Application
+### PostgreSQL + Streamlit | Deployed Portfolio Prototype
 
 **HSE Risk Intelligence** is a PostgreSQL + Streamlit decision-support platform for structuring operational HSE information into a connected, traceable workflow.
 
@@ -22,6 +23,8 @@ The objective is not to automate safety decisions.
 
 The system is designed to help people **capture operational evidence consistently, preserve relationships between records, identify what requires attention, and support defensible management review.**
 
+> The application has been deployed as a portfolio project but has not yet entered operational use. Its current purpose is to demonstrate the system architecture, data relationships, guided reporting workflows, and potential for future analytical development.
+
 ---
 
 ## 🌍 Why I Built It
@@ -40,6 +43,20 @@ Operational HSE information is often fragmented across:
 HSE Risk Intelligence explores how these records can be represented as a connected operational data system rather than independent documents.
 
 The project is informed by real HSE field-reporting experience while using generalized, anonymized, and portfolio-safe data structures.
+
+---
+
+## 🚧 Project Status
+
+Development stage: Built and deployed portfolio application.
+
+Technology: Python, Streamlit, PostgreSQL.
+
+Current status: Functional demonstration application. Not yet adopted for live operational use.
+
+Future development: *See 🔭 Planned Version 2 Exploration section below*
+
+This project demonstrates an applied exploration of HSE data management, relational database design, guided data entry, and reporting workflows.
 
 ---
 
