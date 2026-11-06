@@ -1,7 +1,6 @@
 # 🦺 HSE Risk Intelligence — Project Portfolio
 
-## Guided HSE Data Entry & Reporting Application
-### PostgreSQL + Streamlit | Deployed Portfolio Prototype
+## Guided HSE Data Entry & Reporting Application | Deployed Portfolio Prototype
 
 **HSE Risk Intelligence** is a PostgreSQL + Streamlit decision-support platform for structuring operational HSE information into a connected, traceable workflow.
 
